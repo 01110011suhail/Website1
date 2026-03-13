@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Java Basics | JavaMastery</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR (same as main page) -->
+
+<header>
+<nav class="navbar">
+
+<div class="menu-icon" onclick="toggleSidebar()">☰</div>
+
+<div class="logo">JavaMastery</div>
+
+<input type="text" placeholder="Search tutorials..." class="search-bar">
+
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="#">Basics</a></li>
+<li><a href="#">Advanced</a></li>
+<li><a href="#">Interview QA</a></li>
+<li><a href="#">Programs</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+
+<button id="darkToggle">🌙</button>
+
+<a class="btn" href="#">Start Learning</a>
+
+</nav>
+</header>
+
+
+<!-- PAGE TITLE -->
+
+<section class="page-title">
+
+<h1>Java Basics Tutorial</h1>
+
+<p>Learn the fundamental concepts of Java programming step by step.</p>
+
+</section>
+
+
+<!-- SECTION 1 -->
+
+<section class="tutorial-section">
+
+<h2>1. Introduction to Java</h2>
+
+<p>
+Java is a high-level, object-oriented programming language developed by Sun Microsystems.
+It is widely used for building web applications, mobile apps, and enterprise software.
+</p>
+
+<pre>
+<code>
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello Java!");
+    }
+}
+</code>
+</pre>
+
+<!-- FAQ -->
+
+<div class="faq">
+
+<h3>Interview Questions</h3>
+
+<div class="faq-item">
+<button class="faq-question">What is Java?</button>
+<div class="faq-answer">
+Java is an object-oriented programming language used for building cross-platform applications.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">Why is Java platform independent?</button>
+<div class="faq-answer">
+Java code runs on JVM which converts bytecode to machine code for any operating system.
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- SECTION 2 -->
+
+<section class="tutorial-section">
+
+<h2>2. Java Variables</h2>
+
+<p>
+Variables are used to store data values in Java.
+</p>
+
+<pre>
+<code>
+int age = 20;
+String name = "John";
+
+System.out.println(name);
+</code>
+</pre>
+
+<div class="faq">
+
+<h3>Interview Questions</h3>
+
+<div class="faq-item">
+<button class="faq-question">What is a variable?</button>
+<div class="faq-answer">
+A variable is a container used to store data values.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">What are types of variables in Java?</button>
+<div class="faq-answer">
+Local variables, Instance variables, and Static variables.
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- SECTION 3 -->
+
+<section class="tutorial-section">
+
+<h2>3. Java Data Types</h2>
+
+<p>
+Java supports primitive and non-primitive data types.
+</p>
+
+<pre>
+<code>
+int number = 10;
+double price = 9.99;
+char grade = 'A';
+boolean status = true;
+</code>
+</pre>
+
+<div class="faq">
+
+<h3>Interview Questions</h3>
+
+<div class="faq-item">
+<button class="faq-question">What are primitive data types?</button>
+<div class="faq-answer">
+Primitive data types are basic data types like int, char, boolean, double.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">What is the size of int in Java?</button>
+<div class="faq-answer">
+The size of int in Java is 4 bytes.
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- SECTION 4 -->
+
+<section class="tutorial-section">
+
+<h2>4. Java Loops</h2>
+
+<p>
+Loops are used to repeat a block of code multiple times.
+</p>
+
+<pre>
+<code>
+for(int i=1;i<=5;i++){
+   System.out.println(i);
+}
+</code>
+</pre>
+
+<div class="faq">
+
+<h3>Interview Questions</h3>
+
+<div class="faq-item">
+<button class="faq-question">What are types of loops in Java?</button>
+<div class="faq-answer">
+for loop, while loop, and do-while loop.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">Difference between while and do-while?</button>
+<div class="faq-answer">
+while checks condition before execution while do-while runs at least once.
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-content">
+
+<h3>JavaMastery</h3>
+
+<p>Learn Java Programming from beginner to professional level.</p>
+
+<p>© 2026 JavaMastery. All Rights Reserved.</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+document.querySelectorAll(".faq-question").forEach(button => {
+
+button.addEventListener("click", () => {
+
+const answer = button.nextElementSibling;
+
+answer.style.display =
+answer.style.display === "block" ? "none" : "block";
+
+});
+
+});
+
+</script>
+
+</body>
+</html>

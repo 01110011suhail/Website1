@@ -1,11 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Java Mastery | Learn Java Programming</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-    
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+
+<div class="sidebar-header">
+<h3>Java Tutorials</h3>
+<span class="close-btn" onclick="closeSidebar()">✖</span>
+</div>
+
+<ul>
+<li><a href="#">Introduction</a></li>
+<li><a href="#">Variables</a></li>
+<li><a href="#">Data Types</a></li>
+<li><a href="#">Loops</a></li>
+<li><a href="#">Arrays</a></li>
+<li><a href="#">OOP</a></li>
+<li><a href="#">Collections</a></li>
+<li><a href="#">Multithreading</a></li>
+</ul>
+
+</div>
+
+<div id="overlay" onclick="closeSidebar()"></div>
+
+
+<!-- NAVBAR -->
+<header>
+<nav class="navbar">
+
+<div class="menu-icon" onclick="toggleSidebar()">☰</div>
+
+<div class="logo">JavaMastery</div>
+
+<input type="text" placeholder="Search tutorials..." class="search-bar">
+
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="basic.html">Basics</a></li>
+<li><a href="advanced.html">Advanced</a></li>
+<li><a href="interview.html">Interview QA</a></li>
+<li><a href="programs.html">Programs</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+<button id="darkToggle">🌙</button>
+
+
+</nav>
+</header>
+
+
+<!-- HERO SECTION -->
+<section class="hero">
+
+<div class="hero-text">
+<h1>Learn Java Programming <br> The Smart Way</h1>
+
+<p>
+Master Java from beginner to advanced with tutorials, programs,
+interview questions and real-world examples.
+</p>
+
+<div class="hero-buttons">
+<a href="#" class="primary-btn">Start Learning</a>
+<a href="#" class="secondary-btn">View Programs</a>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LEARNING SECTIONS -->
+<section class="courses">
+
+<h2>Java Learning Path</h2>
+
+<div class="course-container">
+
+<div class="card">
+<h3>Java Basics</h3>
+<p>
+Learn Java fundamentals including variables,
+loops, conditions and OOP basics.
+</p>
+<a href="#">Explore</a>
+</div>
+
+<div class="card">
+<h3>Advanced Java</h3>
+<p>
+Deep dive into multithreading,
+collections, JDBC and frameworks.
+</p>
+<a href="#">Explore</a>
+</div>
+
+<div class="card">
+<h3>Java Programs</h3>
+<p>
+Practice Java with coding problems,
+examples and real interview questions.
+</p>
+<a href="#">Explore</a>
+</div>
+
+<div class="card">
+<h3>Interview Q&A</h3>
+<p>
+Prepare for Java developer interviews
+with commonly asked questions.
+</p>
+<a href="#">Explore</a>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="about">
+
+<h2>About This Platform</h2>
+
+<p>
+This platform is built for students and developers who want to master Java
+programming step by step. You will find structured tutorials,
+coding examples, practice programs and interview preparation.
+</p>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<div class="footer-content">
+
+<h3>JavaMastery</h3>
+
+<p>Learn Java Programming from beginner to professional level.</p>
+
+<p class="copyright">
+© 2026 JavaMastery. All Rights Reserved.
+</p>
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
