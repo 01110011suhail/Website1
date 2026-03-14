@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +11,15 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
 
 <!-- SIDEBAR -->
-<div class="sidebar" id="sidebar">
+
+<aside class="sidebar" id="sidebar">
 
 <div class="sidebar-header">
 <h3>Java Tutorials</h3>
@@ -33,52 +37,80 @@
 <li><a href="#">Multithreading</a></li>
 </ul>
 
-</div>
+</aside>
 
 <div id="overlay" onclick="closeSidebar()"></div>
 
 
 <!-- NAVBAR -->
-<header>
-<nav class="navbar">
 
-<div class="menu-icon" onclick="toggleSidebar()">☰</div>
+<header class="header">
+
+<nav class="navbar container">
+
+<div class="nav-left">
+
+<div class="menu-icon" onclick="toggleSidebar()">
+<i class="fas fa-bars"></i>
+</div>
 
 <div class="logo">JavaMastery</div>
 
+</div>
+
+<div class="nav-center">
+
 <input type="text" placeholder="Search tutorials..." class="search-bar">
 
+</div>
+
 <ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="basic.html">Basics</a></li>
-<li><a href="advanced.html">Advanced</a></li>
-<li><a href="interview.html">Interview QA</a></li>
-<li><a href="programs.html">Programs</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="contact.html">Contact</a></li>
+
+<li><a href="#">Home</a></li>
+<li><a href="#">Basics</a></li>
+<li><a href="#">Advanced</a></li>
+<li><a href="#">Programs</a></li>
+<li><a href="#">Interview</a></li>
+<li><a href="mcq.html">MCQ Quiz</a></li>
+
 </ul>
 
-<button id="darkToggle">🌙</button>
-
+<button id="darkToggle">
+<i class="fas fa-moon"></i>
+</button>
 
 </nav>
+
 </header>
 
 
-<!-- HERO SECTION -->
+
+<!-- HERO -->
+
 <section class="hero">
 
-<div class="hero-text">
-<h1>Learn Java Programming <br> The Smart Way</h1>
+<div class="hero-content container">
+
+<h1>
+Master Java Programming <br>
+<span>From Beginner to Pro</span>
+</h1>
 
 <p>
-Master Java from beginner to advanced with tutorials, programs,
-interview questions and real-world examples.
+Learn Java with structured tutorials, real programs,
+interview questions and hands-on practice.
 </p>
 
 <div class="hero-buttons">
-<a href="#" class="primary-btn">Start Learning</a>
-<a href="#" class="secondary-btn">View Programs</a>
+
+<a href="#" class="btn primary">
+Start Learning
+</a>
+
+<a href="#" class="btn secondary">
+View Programs
+</a>
+
 </div>
 
 </div>
@@ -86,80 +118,372 @@ interview questions and real-world examples.
 </section>
 
 
-<!-- LEARNING SECTIONS -->
-<section class="courses">
 
-<h2>Java Learning Path</h2>
+<!-- LEARNING PATH -->
+
+<section class="courses container">
+
+<h2 class="section-title">Java Learning Path</h2>
 
 <div class="course-container">
 
 <div class="card">
+
+<i class="fa-solid fa-book-open"></i>
+
 <h3>Java Basics</h3>
+
 <p>
-Learn Java fundamentals including variables,
-loops, conditions and OOP basics.
+Learn variables, loops, conditions and OOP fundamentals.
 </p>
+
 <a href="#">Explore</a>
+
 </div>
 
+
 <div class="card">
+
+<i class="fa-solid fa-layer-group"></i>
+
 <h3>Advanced Java</h3>
+
 <p>
-Deep dive into multithreading,
-collections, JDBC and frameworks.
+Dive into multithreading, collections and frameworks.
 </p>
+
 <a href="#">Explore</a>
+
 </div>
 
+
 <div class="card">
+
+<i class="fa-solid fa-code"></i>
+
 <h3>Java Programs</h3>
+
 <p>
-Practice Java with coding problems,
-examples and real interview questions.
+Practice coding problems and real interview examples.
 </p>
+
 <a href="#">Explore</a>
+
 </div>
 
+
 <div class="card">
+
+<i class="fa-solid fa-briefcase"></i>
+
 <h3>Interview Q&A</h3>
+
 <p>
-Prepare for Java developer interviews
-with commonly asked questions.
+Prepare for Java developer interviews.
 </p>
+
 <a href="#">Explore</a>
+
 </div>
 
 </div>
 
 </section>
+
+
+
+<!-- MCQ SECTION -->
+
+<section class="mcq">
+
+<div class="mcq-container container">
+
+<div class="mcq-left">
+
+<h2>Practice Java MCQs</h2>
+
+<p>
+Test your Java knowledge with quick quizzes covering
+basics, OOP, collections and multithreading.
+</p>
+
+<a href="mcq.html" class="btn primary">
+Start Quiz
+</a>
+
+</div>
+
+<div class="mcq-right">
+
+<i class="fa-solid fa-brain"></i>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FAQ -->
+
+<section class="faq container">
+
+<h2 class="section-title">Frequently Asked Questions</h2>
+
+<div class="faq-container">
+
+<div class="faq-item">
+
+<div class="faq-question">
+<span>Is Java good for beginners?</span>
+<i class="fas fa-plus"></i>
+</div>
+
+<div class="faq-answer">
+Java is great for beginners because it teaches
+strong programming fundamentals and OOP concepts.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<div class="faq-question">
+<span>How long does it take to learn Java?</span>
+<i class="fas fa-plus"></i>
+</div>
+
+<div class="faq-answer">
+You can learn basics in 4–6 weeks and become
+comfortable in 3–4 months with practice.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<div class="faq-question">
+<span>Is Java used in industry?</span>
+<i class="fas fa-plus"></i>
+</div>
+
+<div class="faq-answer">
+Java powers enterprise applications,
+banking systems and Android apps.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
 
 
 <!-- ABOUT -->
+
 <section class="about">
 
-<h2>About This Platform</h2>
+<div class="container">
+
+<h2 class="section-title">Why Choose JavaMastery?</h2>
+
+<p class="section-subtitle">
+Your complete guide to mastering Java programming with modern learning tools and comprehensive resources.
+</p>
+
+<div class="features-grid">
+
+<div class="card feature-card">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+<h3>Structured Learning</h3>
 
 <p>
-This platform is built for students and developers who want to master Java
-programming step by step. You will find structured tutorials,
-coding examples, practice programs and interview preparation.
+Follow a carefully designed curriculum from basics to advanced concepts, ensuring you build strong foundations.
 </p>
+
+</div>
+
+<div class="card feature-card">
+
+<i class="fa-solid fa-code"></i>
+
+<h3>Hands-on Practice</h3>
+
+<p>
+Apply your knowledge with real coding exercises, projects, and interactive programming challenges.
+</p>
+
+</div>
+
+<div class="card feature-card">
+
+<i class="fa-solid fa-users"></i>
+
+<h3>Community Support</h3>
+
+<p>
+Join thousands of learners worldwide. Get help from mentors and collaborate with fellow developers.
+</p>
+
+</div>
+
+<div class="card feature-card">
+
+<i class="fa-solid fa-trophy"></i>
+
+<h3>Interview Ready</h3>
+
+<p>
+Prepare for Java developer roles with our comprehensive interview questions and MCQ quizzes.
+</p>
+
+</div>
+
+<div class="card feature-card">
+
+<i class="fa-solid fa-mobile-alt"></i>
+
+<h3>Learn Anywhere</h3>
+
+<p>
+Access tutorials on any device. Our responsive design ensures a seamless learning experience everywhere.
+</p>
+
+</div>
+
+<div class="card feature-card">
+
+<i class="fa-solid fa-infinity"></i>
+
+<h3>Lifetime Access</h3>
+
+<p>
+Once enrolled, enjoy unlimited access to all content. Learn at your own pace, revisit anytime.
+</p>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
+
 <!-- FOOTER -->
+
 <footer>
 
-<div class="footer-content">
+<div class="footer-content container">
+
+<div class="footer-grid">
+
+<div class="footer-section">
 
 <h3>JavaMastery</h3>
 
-<p>Learn Java Programming from beginner to professional level.</p>
+<p>Master Java programming with comprehensive tutorials, hands-on practice, and interview preparation.</p>
+
+<div class="social-links">
+
+<a href="#" class="social-link"><i class="fab fa-github"></i></a>
+
+<a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+
+<a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+
+<a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+
+</div>
+
+</div>
+
+<div class="footer-section">
+
+<h4>Quick Links</h4>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#">Java Basics</a></li>
+
+<li><a href="#">Advanced Java</a></li>
+
+<li><a href="#">Programs</a></li>
+
+<li><a href="#">Interview Q&A</a></li>
+
+<li><a href="mcq.html">MCQ Quiz</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-section">
+
+<h4>Resources</h4>
+
+<ul>
+
+<li><a href="#">Documentation</a></li>
+
+<li><a href="#">Code Examples</a></li>
+
+<li><a href="#">Video Tutorials</a></li>
+
+<li><a href="#">Practice Tests</a></li>
+
+<li><a href="#">Community</a></li>
+
+<li><a href="#">Support</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-section">
+
+<h4>Contact Info</h4>
+
+<ul>
+
+<li><i class="fas fa-envelope"></i> support@javamastery.com</li>
+
+<li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+
+<li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
 
 <p class="copyright">
 © 2026 JavaMastery. All Rights Reserved.
 </p>
+
+<div class="footer-bottom-links">
+
+<a href="#">Privacy Policy</a>
+
+<a href="#">Terms of Service</a>
+
+<a href="#">Cookie Policy</a>
+
+</div>
+
+</div>
 
 </div>
 
