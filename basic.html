@@ -10,37 +10,76 @@
 
 <link rel="stylesheet" href="style.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
 
+<!-- SIDEBAR -->
+
+<aside class="sidebar" id="sidebar">
+
+<div class="sidebar-header">
+<h3>Java Basics</h3>
+<span class="close-btn" onclick="closeSidebar()">✖</span>
+</div>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#features">Features of Java</a></li>
+<li><a href="#jvm-jre-jdk">JVM, JRE, JDK</a></li>
+<li><a href="#first-program">First Java Program</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#data-types">Data Types</a></li>
+<li><a href="#loops">Loops</a></li>
+<li><a href="#oops">OOPs</a></li>
+</ul>
+
+</aside>
+
+<div id="overlay" onclick="closeSidebar()"></div>
+
 
 <!-- NAVBAR (same as main page) -->
 
-<header>
-<nav class="navbar">
+<header class="header">
 
-<div class="menu-icon" onclick="toggleSidebar()">☰</div>
+<nav class="navbar container">
+
+<div class="nav-left">
+
+<div class="menu-icon" onclick="toggleSidebar()">
+<i class="fas fa-bars"></i>
+</div>
 
 <div class="logo">JavaMastery</div>
 
+</div>
+
+<div class="nav-center">
+
 <input type="text" placeholder="Search tutorials..." class="search-bar">
+
+</div>
 
 <ul class="nav-links">
 <li><a href="index.html">Home</a></li>
-<li><a href="#">Basics</a></li>
-<li><a href="#">Advanced</a></li>
-<li><a href="#">Interview QA</a></li>
-<li><a href="#">Programs</a></li>
-<li><a href="#">About</a></li>
-<li><a href="#">Contact</a></li>
+<li><a href="basic.html">Basics</a></li>
+<li><a href="advanced.html">Advanced</a></li>
+<li><a href="programs.html">Programs</a></li>
+<li><a href="interview.html">Interview</a></li>
+<li><a href="mcq.html">MCQ Quiz</a></li>
 </ul>
 
-<button id="darkToggle">🌙</button>
-
-<a class="btn" href="#">Start Learning</a>
+<button id="darkToggle">
+<i class="fas fa-moon"></i>
+</button>
 
 </nav>
+
 </header>
 
 
@@ -57,56 +96,350 @@
 
 <!-- SECTION 1 -->
 
-<section class="tutorial-section">
+<section id="introduction" class="tutorial-section">
 
-<h2>1. Introduction to Java</h2>
+<h2 style="text-align: center">1. Introduction to Java</h2>
 
 <p>
-Java is a high-level, object-oriented programming language developed by Sun Microsystems.
-It is widely used for building web applications, mobile apps, and enterprise software.
+Java is a popular programming language, created in 1995.
 </p>
 
-<pre>
-<code>
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello Java!");
-    }
-}
-</code>
-</pre>
+<p>
+It is owned by Oracle, and more than 3 billion devices run Java.
+</p>
+
+<h3>What is Java?</h3>
+<p>
+Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a general-purpose programming language intended to let programmers write once, run anywhere (WORA), meaning that compiled Java code can run on all platforms that support Java without the need for recompilation.
+</p>
+
+<h3>Java History</h3>
+<p>
+Java was originally developed by James Gosling at Sun Microsystems (which has since been acquired by Oracle) and released in 1995 as a core component of Sun Microsystems' Java platform. The language derives much of its syntax from C and C++, but it has fewer low-level facilities than either of them.
+</p>
+
+<h3>Why Use Java?</h3>
+<ul>
+<li>Java works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc.)</li>
+<li>It is one of the most popular programming languages in the world</li>
+<li>It has a large demand in the current job market</li>
+<li>It is easy to learn and simple to use</li>
+<li>It is open-source and free</li>
+<li>It is secure, fast and powerful</li>
+<li>It has huge community support (tens of millions of developers)</li>
+<li>Java is an object oriented language which gives a clear structure to programs and allows code to be reused, lowering development costs</li>
+<li>As Java is close to C++ and C#, it makes it easy for programmers to switch to Java or vice versa</li>
+</ul>
 
 <!-- FAQ -->
-
 <div class="faq">
-
-<h3>Interview Questions</h3>
-
+<h3 style="text-align: center">Frequently Asked Questions</h3>
 <div class="faq-item">
-<button class="faq-question">What is Java?</button>
+<button class="faq-question">What is Java? <i class="fas fa-plus"></i></button>
 <div class="faq-answer">
-Java is an object-oriented programming language used for building cross-platform applications.
+Java is a high-level, object-oriented programming language developed by Sun Microsystems (now Oracle). It is platform-independent and widely used for building applications.
 </div>
 </div>
-
 <div class="faq-item">
-<button class="faq-question">Why is Java platform independent?</button>
+<button class="faq-question">Why is Java called platform independent? <i class="fas fa-plus"></i></button>
 <div class="faq-answer">
-Java code runs on JVM which converts bytecode to machine code for any operating system.
+Java is platform independent because the Java code is compiled into bytecode, which can run on any machine with JVM installed, regardless of the operating system.
 </div>
 </div>
-
+<div class="faq-item">
+<button class="faq-question">Who invented Java? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+Java was invented by James Gosling and his team at Sun Microsystems in 1995.
+</div>
+</div>
 </div>
 
 </section>
 
 
 
-<!-- SECTION 2 -->
+<!-- SECTION 4 -->
 
-<section class="tutorial-section">
+<section id="jvm-jre-jdk" class="tutorial-section">
 
-<h2>2. Java Variables</h2>
+<h2 style="text-align: center">4. First Java Program</h2>
+
+<p>
+Let's create our first Java program. We will write a simple "Hello World" program.
+</p>
+
+<h3>Java Program Structure</h3>
+<p>
+Every Java program has a class definition, and the class name should match the filename. The program must contain a main() method, which is the entry point of the program.
+</p>
+
+<h3>Example: Hello World</h3>
+<pre>
+<code>
+public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
+</code>
+</pre>
+
+<h3>Explanation</h3>
+<ul>
+<li><strong>public class Main:</strong> This is the class definition. The class name is Main, and it is public, meaning it can be accessed from outside the class.</li>
+<li><strong>public static void main(String[] args):</strong> This is the main method. It is the entry point of the program. The JVM starts executing the code from the main method.</li>
+<li><strong>System.out.println("Hello World"):</strong> This line prints "Hello World" to the console.</li>
+</ul>
+
+<h3>How to Run the Program</h3>
+<ol>
+<li>Save the code in a file called Main.java</li>
+<li>Open a command prompt or terminal</li>
+<li>Navigate to the directory where the file is saved</li>
+<li>Compile the code: <code>javac Main.java</code></li>
+<li>Run the program: <code>java Main</code></li>
+</ol>
+
+<p>
+The output will be: Hello World
+</p>
+
+<h3>Java Comments</h3>
+<p>
+Comments are used to explain the code and are ignored by the compiler. There are three types of comments in Java:
+</p>
+
+<h4>Single-line Comments</h4>
+<pre>
+<code>
+// This is a single-line comment
+System.out.println("Hello World");
+</code>
+</pre>
+
+<h4>Multi-line Comments</h4>
+<pre>
+<code>
+/*
+This is a multi-line comment.
+It can span multiple lines.
+*/
+System.out.println("Hello World");
+</code>
+</pre>
+
+<h4>Documentation Comments</h4>
+<pre>
+<code>
+/**
+ * This is a documentation comment.
+ * It is used to generate API documentation.
+ */
+public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
+</code>
+</pre>
+
+<!-- FAQ -->
+<div class="faq">
+<h3 style="text-align: center">Frequently Asked Questions</h3>
+<div class="faq-item">
+<button class="faq-question">What is the main method in Java? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+The main method is the entry point of a Java program. It is where the program starts executing.
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">What is System.out.println()? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+System.out.println() is used to print output to the console. 'System' is a class, 'out' is a static member of System class, and 'println' is a method of PrintStream class.
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">What are Java comments? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+Comments are used to explain code and are ignored by the compiler. Java supports single-line (//), multi-line (/* */), and documentation (/** */) comments.
+</div>
+</div>
+</div>
+
+</section>
+
+<section id="jvm-jre-jdk" class="tutorial-section">
+
+<h2 style="text-align: center">3. JVM, JRE, JDK</h2>
+
+<h3>What is JVM?</h3>
+<p>
+JVM (Java Virtual Machine) is an abstract machine that enables your computer to run a Java program. When you run the Java program, Java compiler first compiles your Java code to bytecode. Then, the JVM translates bytecode into native machine code (set of instructions that a computer's CPU executes directly).
+</p>
+
+<p>
+JVM is a part of JRE (Java Runtime Environment). Java applications are called WORA (Write Once Run Anywhere). This means a programmer can develop Java code on one system and can expect it to run on any other Java-enabled system without any adjustment. This is all possible because of JVM.
+</p>
+
+<h3>What is JRE?</h3>
+<p>
+JRE (Java Runtime Environment) is a software package that provides Java class libraries, Java Virtual Machine (JVM), and other components that are required to run Java applications. JRE is the superset of JVM.
+</p>
+
+<h3>What is JDK?</h3>
+<p>
+JDK (Java Development Kit) is a software development kit required to develop applications in Java. When you download JDK, JRE is also downloaded with it. In addition to JRE, JDK also contains a number of development tools (compilers, JavaDoc, Java Debugger, etc).
+</p>
+
+<h3>Difference between JDK, JRE, and JVM</h3>
+
+<table>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>JVM</td>
+<td>JVM (Java Virtual Machine) is an abstract machine. It is a specification that provides runtime environment in which java bytecode can be executed.</td>
+</tr>
+<tr>
+<td>JRE</td>
+<td>JRE is an acronym for Java Runtime Environment. It is used to provide runtime environment. It is the implementation of JVM.</td>
+</tr>
+<tr>
+<td>JDK</td>
+<td>JDK is an acronym for Java Development Kit. It physically exists. It contains JRE + development tools.</td>
+</tr>
+</table>
+
+<h3>How JVM Works?</h3>
+<p>
+JVM becomes an instance of JRE at runtime of a Java program. It is widely known as a runtime interpreter. The Java compiler (javac) compiles the Java file into a Java .class file, then that .class file is input into the Java Virtual Machine, which loads and executes the class file.
+</p>
+
+<!-- FAQ -->
+<div class="faq">
+<h3 style="text-align: center">Frequently Asked Questions</h3>
+<div class="faq-item">
+<button class="faq-question">What is JVM? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+JVM (Java Virtual Machine) is an abstract machine that enables your computer to run a Java program. It translates bytecode into native machine code.
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">What is the difference between JDK and JRE? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+JDK (Java Development Kit) includes tools for developing Java applications, while JRE (Java Runtime Environment) is used to run Java applications. JDK contains JRE plus development tools.
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">Why is Java platform independent? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+Java is platform independent because JVM converts bytecode to machine code for any operating system.
+</div>
+</div>
+</div>
+
+</section>
+
+<section id="features" class="tutorial-section">
+
+<h2 style="text-align: center">2. Features of Java</h2>
+
+<p>
+Java has many features that make it a powerful and popular programming language. Here are some of the key features:
+</p>
+
+<h3>Simple</h3>
+<p>
+Java is easy to learn. Its syntax is based on C++ (so it's easier for programmers who know C++). Java has removed many complicated and rarely-used features, for example, explicit pointers, operator overloading, etc. Java also takes care of memory management and has automatic garbage collection.
+</p>
+
+<h3>Object-Oriented</h3>
+<p>
+Everything in Java is an object. Object-oriented means we organize our software as a combination of different types of objects that incorporate both data and behavior. Object-oriented programming (OOPs) concepts include abstraction, encapsulation, inheritance, and polymorphism.
+</p>
+
+<h3>Platform Independent</h3>
+<p>
+Java is platform independent because it is different from other languages like C, C++, etc. which are compiled into platform specific machines while Java is a write once, run anywhere language. A platform is the hardware or software environment in which a program runs.
+</p>
+
+<h3>Secured</h3>
+<p>
+Java is secured because:
+</p>
+<ul>
+<li>No explicit pointer</li>
+<li>Java Programs run inside a virtual machine sandbox</li>
+<li>Classloader: It adds security by separating the package for the classes of the local file system from those that are imported from network sources.</li>
+<li>Bytecode Verifier: It checks the code fragments for illegal code that can violate access rights to objects.</li>
+<li>Security Manager: It determines what resources a class can access such as reading and writing to the local disk.</li>
+</ul>
+
+<h3>Robust</h3>
+<p>
+Java is robust because:
+</p>
+<ul>
+<li>It uses strong memory management.</li>
+<li>There are lack of pointers that avoids security problems.</li>
+<li>Java provides automatic garbage collection which runs on the Java Virtual Machine to get rid of objects which are not being used by a Java application anymore.</li>
+<li>There are exception handling and the type checking mechanism in Java.</li>
+</ul>
+
+<h3>Architecture Neutral</h3>
+<p>
+Java is architecture neutral because there are no implementation dependent features, for example, the size of primitive types is fixed. In C programming, int data type occupies 2 bytes of memory for 32-bit architecture and 4 bytes of memory for 64-bit architecture. However, it occupies 4 bytes of memory for both 32 and 64-bit architectures in Java.
+
+<h3>Portable</h3>
+<p>
+Java is portable because it facilitates you to carry the Java bytecode to any platform. It doesn't require any implementation.
+
+<h3>High Performance</h3>
+<p>
+Java is faster than other traditional interpreted programming languages because Java bytecode is "close" to native code. It is still a little bit slower than a compiled language (e.g., C++). Java is an interpreted language that is why it is slower than compiled languages, e.g., C, C++, etc.
+
+<h3>Multithreaded</h3>
+<p>
+A thread is like a separate program, executing concurrently. We can write Java programs that deal with many tasks at once by defining multiple threads. The main advantage of multi-threading is that it doesn't occupy memory for each thread. It shares a common memory area. Threads are important for multi-media, Web applications, etc.
+
+<h3>Distributed</h3>
+<p>
+Java is distributed because it facilitates users to create distributed applications in Java. RMI and EJB are used for creating distributed applications. This feature of Java makes us able to access files by calling the methods from any machine on the internet.
+
+<h3>Dynamic</h3>
+<p>
+Java is a dynamic language. It supports dynamic loading of classes. It means classes are loaded on demand. It also supports functions from its native languages, i.e., C and C++.
+
+<!-- FAQ -->
+<div class="faq">
+<h3 style="text-align: center">Frequently Asked Questions</h3>
+<div class="faq-item">
+<button class="faq-question">What are the main features of Java? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+Java's main features include: Simple, Object-Oriented, Platform Independent, Secured, Robust, Architecture Neutral, Portable, High Performance, Multithreaded, Distributed, and Dynamic.
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">Why is Java secure? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+Java is secure due to features like no explicit pointers, running in a virtual machine sandbox, classloader, bytecode verifier, and security manager.
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">What is meant by platform independence in Java? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+Platform independence means that Java programs can run on any operating system without modification, thanks to the JVM.
+</div>
+</div>
+</div>
+
+</section>
+
+<section id="variables" class="tutorial-section">
+
+<h2 style="text-align: center">5. Java Variables</h2>
 
 <p>
 Variables are used to store data values in Java.
@@ -123,19 +456,26 @@ System.out.println(name);
 
 <div class="faq">
 
-<h3>Interview Questions</h3>
+<h3 style="text-align: center">Frequently Asked Questions</h3>
 
 <div class="faq-item">
-<button class="faq-question">What is a variable?</button>
+<button class="faq-question">What is a variable? <i class="fas fa-plus"></i></button>
 <div class="faq-answer">
 A variable is a container used to store data values.
 </div>
 </div>
 
 <div class="faq-item">
-<button class="faq-question">What are types of variables in Java?</button>
+<button class="faq-question">What are types of variables in Java? <i class="fas fa-plus"></i></button>
 <div class="faq-answer">
 Local variables, Instance variables, and Static variables.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">What is the difference between local and instance variables? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+Local variables are declared inside a method and are only accessible within that method. Instance variables are declared inside a class but outside a method and are accessible by all methods of the class.
 </div>
 </div>
 
@@ -145,11 +485,11 @@ Local variables, Instance variables, and Static variables.
 
 
 
-<!-- SECTION 3 -->
+<!-- SECTION 6 -->
 
-<section class="tutorial-section">
+<section id="data-types" class="tutorial-section">
 
-<h2>3. Java Data Types</h2>
+<h2 style="text-align: center">6. Java Data Types</h2>
 
 <p>
 Java supports primitive and non-primitive data types.
@@ -166,19 +506,26 @@ boolean status = true;
 
 <div class="faq">
 
-<h3>Interview Questions</h3>
+<h3 style="text-align: center">Frequently Asked Questions</h3>
 
 <div class="faq-item">
-<button class="faq-question">What are primitive data types?</button>
+<button class="faq-question">What are primitive data types? <i class="fas fa-plus"></i></button>
 <div class="faq-answer">
 Primitive data types are basic data types like int, char, boolean, double.
 </div>
 </div>
 
 <div class="faq-item">
-<button class="faq-question">What is the size of int in Java?</button>
+<button class="faq-question">What is the size of int in Java? <i class="fas fa-plus"></i></button>
 <div class="faq-answer">
 The size of int in Java is 4 bytes.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">What is the difference between primitive and non-primitive data types? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+Primitive data types are predefined by Java and have a fixed size. Non-primitive data types are created by the programmer and can be null.
 </div>
 </div>
 
@@ -188,11 +535,11 @@ The size of int in Java is 4 bytes.
 
 
 
-<!-- SECTION 4 -->
+<!-- SECTION 7 -->
 
-<section class="tutorial-section">
+<section id="loops" class="tutorial-section">
 
-<h2>4. Java Loops</h2>
+<h2 style="text-align: center">7. Java Loops</h2>
 
 <p>
 Loops are used to repeat a block of code multiple times.
@@ -208,19 +555,148 @@ for(int i=1;i<=5;i++){
 
 <div class="faq">
 
-<h3>Interview Questions</h3>
+<h3 style="text-align: center">Frequently Asked Questions</h3>
 
 <div class="faq-item">
-<button class="faq-question">What are types of loops in Java?</button>
+<button class="faq-question">What are types of loops in Java? <i class="fas fa-plus"></i></button>
 <div class="faq-answer">
 for loop, while loop, and do-while loop.
 </div>
 </div>
 
 <div class="faq-item">
-<button class="faq-question">Difference between while and do-while?</button>
+<button class="faq-question">Difference between while and do-while? <i class="fas fa-plus"></i></button>
 <div class="faq-answer">
 while checks condition before execution while do-while runs at least once.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">What is an infinite loop? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+An infinite loop is a loop that never ends because the condition is always true.
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- SECTION 8 -->
+
+<section id="oops" class="tutorial-section">
+
+<h2 style="text-align: center">8. Object-Oriented Programming (OOP) in Java</h2>
+
+<p>
+Object-Oriented Programming is a programming paradigm that uses objects and classes. Java is fundamentally an object-oriented language, and understanding OOP concepts is crucial for Java development.
+</p>
+
+<h3>Key OOP Concepts</h3>
+<ul>
+<li><strong>Class:</strong> A blueprint for creating objects</li>
+<li><strong>Object:</strong> An instance of a class</li>
+<li><strong>Inheritance:</strong> Mechanism where one class acquires properties of another</li>
+<li><strong>Polymorphism:</strong> Ability of an object to take many forms</li>
+<li><strong>Encapsulation:</strong> Wrapping data and methods into a single unit</li>
+<li><strong>Abstraction:</strong> Hiding implementation details and showing only functionality</li>
+</ul>
+
+<h3>Example: Creating a Class and Object</h3>
+<pre>
+<code>
+class Car {
+    // Fields (attributes)
+    String brand;
+    String model;
+    int year;
+
+    // Constructor
+    Car(String brand, String model, int year) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+    }
+
+    // Method
+    void displayInfo() {
+        System.out.println(brand + " " + model + " (" + year + ")");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an object
+        Car myCar = new Car("Toyota", "Camry", 2020);
+        myCar.displayInfo();
+    }
+}
+</code>
+</pre>
+
+<h3>Inheritance Example</h3>
+<pre>
+<code>
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();  // Inherited method
+        dog.bark(); // Own method
+    }
+}
+</code>
+</pre>
+
+<div class="faq">
+
+<h3 style="text-align: center">Frequently Asked Questions</h3>
+
+<div class="faq-item">
+<button class="faq-question">What is a class in Java? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+A class is a blueprint or template that defines the properties and behaviors of objects.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">What is inheritance? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+Inheritance is a mechanism where one class acquires the properties and behaviors of another class using the 'extends' keyword.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">What is polymorphism? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+Polymorphism allows objects to be treated as instances of their parent class, enabling method overriding and overloading.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">What is encapsulation? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+Encapsulation is the technique of wrapping data and methods into a single unit (class) and restricting access to some components using access modifiers.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">What is abstraction? <i class="fas fa-plus"></i></button>
+<div class="faq-answer">
+Abstraction is the process of hiding implementation details and showing only the functionality to the user.
 </div>
 </div>
 
@@ -234,13 +710,109 @@ while checks condition before execution while do-while runs at least once.
 
 <footer>
 
-<div class="footer-content">
+<div class="footer-content container">
+
+<div class="footer-grid">
+
+<div class="footer-section">
 
 <h3>JavaMastery</h3>
 
-<p>Learn Java Programming from beginner to professional level.</p>
+<p>Master Java programming with comprehensive tutorials, hands-on practice, and interview preparation.</p>
 
-<p>© 2026 JavaMastery. All Rights Reserved.</p>
+<div class="social-links">
+
+<a href="#" class="social-link"><i class="fab fa-github"></i></a>
+
+<a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+
+<a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+
+<a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+
+</div>
+
+</div>
+
+<div class="footer-section">
+
+<h4>Quick Links</h4>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="basic.html">Java Basics</a></li>
+
+<li><a href="advanced.html">Advanced Java</a></li>
+
+<li><a href="programs.html">Programs</a></li>
+
+<li><a href="interview.html">Interview Q&A</a></li>
+
+<li><a href="mcq.html">MCQ Quiz</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-section">
+
+<h4>Resources</h4>
+
+<ul>
+
+<li><a href="#">Documentation</a></li>
+
+<li><a href="#">Code Examples</a></li>
+
+<li><a href="#">Video Tutorials</a></li>
+
+<li><a href="#">Practice Tests</a></li>
+
+<li><a href="#">Community</a></li>
+
+<li><a href="#">Support</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-section">
+
+<h4>Contact Info</h4>
+
+<ul>
+
+<li><i class="fas fa-envelope"></i> support@javamastery.com</li>
+
+<li><i class="fas fa-phone"></i> +91 9876543210</li>
+
+<li><i class="fas fa-map-marker-alt"></i> bangalore, india</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p class="copyright">
+© 2026 JavaMastery. All Rights Reserved.
+</p>
+
+<div class="footer-bottom-links">
+
+<a href="#">Privacy Policy</a>
+
+<a href="#">Terms of Service</a>
+
+<a href="#">Cookie Policy</a>
+
+</div>
+
+</div>
 
 </div>
 
@@ -255,14 +827,31 @@ button.addEventListener("click", () => {
 
 const answer = button.nextElementSibling;
 
-answer.style.display =
-answer.style.display === "block" ? "none" : "block";
+const icon = button.querySelector("i");
+
+answer.style.display = answer.style.display === "block" ? "none" : "block";
+
+if (answer.style.display === "block") {
+
+icon.classList.remove("fa-plus");
+
+icon.classList.add("fa-minus");
+
+} else {
+
+icon.classList.remove("fa-minus");
+
+icon.classList.add("fa-plus");
+
+}
 
 });
 
 });
 
 </script>
+
+<script src="script.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Java MCQ Challenge - Professional Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .quiz-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    width: 100%;
+    max-width: 650px;
+    max-height: 85vh;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .quiz-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+
+  .quiz-content::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .quiz-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .quiz-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+  }
+
+  .quiz-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+
+  .quiz-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    position: relative;
+  }
+
+  .exit-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(229, 62, 62, 0.3);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .exit-btn::before {
+    content: "🚪";
+    font-size: 16px;
+  }
+
+  .exit-btn:hover {
+    background: linear-gradient(135deg, #c53030 0%, #a02424 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.4);
+  }
+
+  .quiz-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 6px;
+  }
+
+  .quiz-subtitle {
+    font-size: 14px;
+    color: #718096;
+    font-weight: 400;
+  }
+
+  .progress-section {
+    margin-bottom: 20px;
+  }
+
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .question-counter {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+    background: #f7fafc;
+    padding: 8px 16px;
+    border-radius: 20px;
+  }
+
+  .timer {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e53e3e;
+    background: #fed7d7;
+    padding: 8px 16px;
+    border-radius: 20px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    background: #edf2f7;
+    border-radius: 10px;
+    height: 8px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .progress {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    transition: width 0.6s ease;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+  }
+
+  .question-section {
+    margin-bottom: 20px;
+  }
+
+  .question {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+  }
+
+  .options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .options li {
+    background: #ffffff;
+    padding: 14px 18px;
+    margin: 8px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #e2e8f0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #4a5568;
+    position: relative;
+    overflow: hidden;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .options li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    transition: left 0.5s;
+  }
+
+  .options li:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+  }
+
+  .options li:hover::before {
+    left: 100%;
+  }
+
+  .options li.selected {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  }
+
+  .options li.selected::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  }
+
+  .button-section {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-height: 48px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  }
+
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+  }
+
+  .score-container {
+    text-align: center;
+    padding: 40px 20px;
+    animation: slideIn 0.8s ease forwards;
+  }
+
+  .score-container h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 15px;
+  }
+
+  .score-percentage {
+    font-size: 24px;
+    color: #718096;
+    margin-bottom: 20px;
+  }
+
+  .score-message {
+    font-size: 18px;
+    color: #4a5568;
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+
+  .retry-btn {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  }
+
+  .retry-btn:hover {
+    box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4);
+  }
+
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding: 10px;
+    }
+
+    .quiz-container {
+      padding: 15px;
+      margin: 5px;
+      max-height: 90vh;
+      max-width: 100%;
+    }
+
+    .quiz-content {
+      padding-right: 5px;
+    }
+
+    .quiz-title {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .quiz-subtitle {
+      font-size: 13px;
+    }
+
+    .question {
+      font-size: 15px;
+      padding: 12px;
+      margin-bottom: 15px;
+    }
+
+    .options li {
+      padding: 12px 16px;
+      font-size: 14px;
+      margin: 6px 0;
+    }
+
+    .progress-info {
+      flex-direction: column;
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    .question-counter,
+    .timer {
+      text-align: center;
+      font-size: 12px;
+      padding: 6px 10px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 14px;
+    }
+
+    .modal-content {
+      margin: 5% auto;
+      padding: 25px 15px;
+      width: 95%;
+      max-width: 400px;
+    }
+
+    .modal-score-container h2 {
+      font-size: 24px;
+    }
+
+    .modal-score-percentage {
+      font-size: 18px;
+    }
+
+    .modal-score-message {
+      font-size: 15px;
+    }
+
+    .modal-retry-btn {
+      padding: 12px 24px;
+      font-size: 14px;
+    }
+  }
+
+  /* Tablet styles */
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .quiz-container {
+      max-width: 700px;
+      padding: 25px;
+    }
+
+    .quiz-title {
+      font-size: 26px;
+    }
+
+    .question {
+      font-size: 18px;
+      padding: 16px;
+    }
+
+    .options li {
+      padding: 16px 20px;
+      font-size: 15px;
+    }
+  }
+
+  /* Small mobile devices */
+  @media (max-width: 480px) {
+    body {
+      padding: 5px;
+    }
+
+    .quiz-container {
+      padding: 12px;
+      margin: 2px;
+      border-radius: 10px;
+    }
+
+    .quiz-title {
+      font-size: 18px;
+    }
+
+    .quiz-subtitle {
+      font-size: 12px;
+    }
+
+    .question {
+      font-size: 14px;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+
+    .options li {
+      padding: 10px 14px;
+      font-size: 13px;
+      margin: 4px 0;
+      border-radius: 8px;
+    }
+
+    .progress-bar {
+      height: 6px;
+    }
+
+    .question-counter,
+    .timer {
+      font-size: 11px;
+      padding: 4px 8px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 13px;
+    }
+
+    .modal-content {
+      margin: 2% auto;
+      padding: 20px 12px;
+      width: 98%;
+      border-radius: 12px;
+    }
+
+    .modal-score-container h2 {
+      font-size: 20px;
+    }
+
+    .modal-score-percentage {
+      font-size: 16px;
+    }
+
+    .modal-score-message {
+      font-size: 14px;
+    }
+
+    .modal-retry-btn {
+      padding: 10px 20px;
+      font-size: 13px;
+    }
+
+    .exit-btn {
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+    }
+
+    .exit-modal-content {
+      margin: 25% auto;
+      padding: 25px;
+    }
+
+    .exit-modal-content h3 {
+      font-size: 20px;
+    }
+
+    .exit-modal-content p {
+      font-size: 14px;
+    }
+
+    .exit-modal-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .exit-confirm-btn,
+    .exit-cancel-btn {
+      padding: 10px 20px;
+      font-size: 13px;
+    }
+  }
+
+  /* Very small screens */
+  @media (max-width: 360px) {
+    .quiz-container {
+      padding: 8px;
+    }
+
+    .quiz-title {
+      font-size: 16px;
+    }
+
+    .question {
+      font-size: 13px;
+      padding: 8px;
+    }
+
+    .options li {
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+
+    .modal-content {
+      padding: 15px 10px;
+    }
+  }
+
+  /* Large screens - prevent quiz from getting too wide */
+  @media (min-width: 1200px) {
+    .quiz-container {
+      max-width: 700px;
+      padding: 30px;
+    }
+
+    .quiz-title {
+      font-size: 28px;
+    }
+
+    .question {
+      font-size: 20px;
+      padding: 20px;
+    }
+
+    .options li {
+      padding: 18px 24px;
+      font-size: 16px;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+  }
+
+  .modal-content {
+    background: #ffffff;
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: slideIn 0.5s ease;
+  }
+
+  .close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .close:hover {
+    color: #667eea;
+  }
+
+  .modal-score-container {
+    text-align: center;
+  }
+
+  .modal-score-container h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 15px;
+  }
+
+  .modal-score-percentage {
+    font-size: 24px;
+    color: #718096;
+    margin-bottom: 20px;
+  }
+
+  .modal-score-message {
+    font-size: 18px;
+    color: #4a5568;
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+
+  .modal-retry-btn {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 10px;
+  }
+
+  .modal-retry-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4);
+  }
+
+  /* Exit Confirmation Modal Styles */
+  .exit-modal-content {
+    background: #ffffff;
+    margin: 20% auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    animation: slideIn 0.4s ease;
+    text-align: center;
+  }
+
+  .exit-modal-content h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 15px;
+  }
+
+  .exit-modal-content p {
+    font-size: 16px;
+    color: #4a5568;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+
+  .exit-modal-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .exit-confirm-btn {
+    background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .exit-confirm-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+  }
+
+  .exit-cancel-btn {
+    background: #f7fafc;
+    color: #4a5568;
+    border: 2px solid #e2e8f0;
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .exit-cancel-btn:hover {
+    background: #edf2f7;
+    border-color: #cbd5e0;
+    transform: translateY(-2px);
+  }
+
+</style>
+</head>
+<body>
+<div class="quiz-container">
+  <div class="quiz-content">
+    <div class="quiz-header">
+      <button class="exit-btn" onclick="showExitConfirmation()" title="Exit Quiz">Exit</button>
+      <h1 class="quiz-title">Java MCQ Challenge</h1>
+      <p class="quiz-subtitle">Test your Java knowledge with 25 random tricky questions</p>
+    </div>
+
+    <div class="progress-section">
+      <div class="progress-info">
+        <div class="question-counter" id="questionCounter">Question 1 of 25</div>
+        <div class="timer" id="timer">Time: 45s</div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+    </div>
+
+    <div class="question-section">
+      <div class="question" id="question"></div>
+      <ul class="options" id="options"></ul>
+    </div>
+
+    <div class="button-section">
+      <button class="btn" id="nextBtn" style="display:none;">Next Question</button>
+      <button class="btn" id="submitBtn" style="display:none;">Submit Quiz</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Results -->
+<div id="resultModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-score-container" id="modalScoreContent">
+      <!-- Score content will be inserted here -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Exit Confirmation -->
+<div id="exitModal" class="modal">
+  <div class="exit-modal-content">
+    <h3>Exit Quiz?</h3>
+    <p>Are you sure you want to exit the quiz? Your progress will be lost.</p>
+    <div class="exit-modal-buttons">
+      <button class="exit-cancel-btn" onclick="closeExitModal()">Cancel</button>
+      <button class="exit-confirm-btn" onclick="confirmExit()">Exit Quiz</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Function to shuffle array and get random questions
+function getRandomQuestions(allQuestions, count) {
+  const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
+
+// All 100 Java questions
+const allQuestions = [
+  {
+    q: "What will be the output of the following code?<br><code>class Test {<br>&nbsp;&nbsp;public static void main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int x = 10;<br>&nbsp;&nbsp;&nbsp;&nbsp;int y = ++x + x++;<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(y);<br>&nbsp;&nbsp;}<br>}</code>",
+    options: ["20", "21", "22", "23"],
+    answer: 2
+  },
+  {
+    q: "Which of the following statements about Java's garbage collection is true?",
+    options: ["It guarantees that objects will be collected immediately when they become unreachable", "It can be forced to run using System.gc()", "It runs on a separate thread by default", "It prevents memory leaks completely"],
+    answer: 2
+  },
+  {
+    q: "What will happen when you try to compile and run this code?<br><code>class A {<br>&nbsp;&nbsp;static {<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(\"A static\");<br>&nbsp;&nbsp;}<br>}<br>class B extends A {<br>&nbsp;&nbsp;static {<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(\"B static\");<br>&nbsp;&nbsp;}<br>}<br>public class Test {<br>&nbsp;&nbsp;public static void main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;new B();<br>&nbsp;&nbsp;}<br>}</code>",
+    options: ["A static\\nB static", "B static\\nA static", "Only B static", "Compilation error"],
+    answer: 0
+  },
+  {
+    q: "Which method in Object class is used for creating a copy of an object?",
+    options: ["copy()", "clone()", "duplicate()", "replicate()"],
+    answer: 1
+  },
+  {
+    q: "What is the output of this code?<br><code>String s1 = \"Hello\";<br>String s2 = \"Hello\";<br>String s3 = new String(\"Hello\");<br>System.out.println(s1 == s2);<br>System.out.println(s1 == s3);</code>",
+    options: ["true true", "true false", "false true", "false false"],
+    answer: 1
+  },
+  {
+    q: "Which of the following is NOT a valid way to create a thread in Java?",
+    options: ["Extending Thread class", "Implementing Runnable interface", "Implementing Callable interface", "Using lambda expressions with Runnable"],
+    answer: 2
+  },
+  {
+    q: "What will be the output?<br><code>class Parent {<br>&nbsp;&nbsp;int x = 10;<br>&nbsp;&nbsp;{ System.out.println(\"Parent instance block\"); }<br>}<br>class Child extends Parent {<br>&nbsp;&nbsp;int x = 20;<br>&nbsp;&nbsp;{ System.out.println(\"Child instance block\"); }<br>}<br>public class Test {<br>&nbsp;&nbsp;public static void main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;Child c = new Child();<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(c.x);<br>&nbsp;&nbsp;}<br>}</code>",
+    options: ["Parent instance block\\nChild instance block\\n20", "Child instance block\\nParent instance block\\n20", "Parent instance block\\nChild instance block\\n10", "Compilation error"],
+    answer: 0
+  },
+  {
+    q: "Which collection class allows null values and maintains insertion order?",
+    options: ["HashSet", "TreeSet", "LinkedHashSet", "HashMap"],
+    answer: 2
+  },
+  {
+    q: "What is the purpose of the 'transient' keyword in Java?",
+    options: ["To make a variable thread-safe", "To prevent serialization of a field", "To make a method synchronized", "To create immutable objects"],
+    answer: 1
+  },
+  {
+    q: "Which of the following will cause a compilation error?<br><code>class Test {<br>&nbsp;&nbsp;public void method() {<br>&nbsp;&nbsp;&nbsp;&nbsp;try {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>&nbsp;&nbsp;&nbsp;&nbsp;} finally {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(\"finally\");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>}</code>",
+    options: ["The return statement in try block", "The finally block", "The method declaration", "Nothing, code compiles fine"],
+    answer: 3
+  },
+  {
+    q: "What is the output of this code?<br><code>Integer a = 100;<br>Integer b = 100;<br>Integer c = 200;<br>Integer d = 200;<br>System.out.println(a == b);<br>System.out.println(c == d);</code>",
+    options: ["true true", "true false", "false true", "false false"],
+    answer: 1
+  },
+  {
+    q: "Which interface should be implemented for custom sorting in Collections.sort()?",
+    options: ["Comparable", "Comparator", "Serializable", "Runnable"],
+    answer: 1
+  },
+  {
+    q: "What happens when you call wait() on an object?",
+    options: ["The thread terminates", "The thread releases the lock and waits", "The thread gets higher priority", "The object gets garbage collected"],
+    answer: 1
+  },
+  {
+    q: "Which of the following is true about Java annotations?",
+    options: ["They can change the behavior of compiled code", "They are only used for documentation", "They can be processed at compile time", "They replace XML configuration completely"],
+    answer: 2
+  },
+  {
+    q: "What will be the output?<br><code>class A {<br>&nbsp;&nbsp;static int i = 10;<br>&nbsp;&nbsp;static {<br>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br>&nbsp;&nbsp;}<br>}<br>class B extends A {<br>&nbsp;&nbsp;static {<br>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br>&nbsp;&nbsp;}<br>}<br>public class Test {<br>&nbsp;&nbsp;public static void main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(B.i);<br>&nbsp;&nbsp;}<br>}</code>",
+    options: ["10", "11", "12", "Compilation error"],
+    answer: 2
+  },
+  {
+    q: "Which collection is thread-safe and allows concurrent read/write operations?",
+    options: ["ArrayList", "HashMap", "ConcurrentHashMap", "LinkedList"],
+    answer: 2
+  },
+  {
+    q: "What is the purpose of the 'volatile' keyword?",
+    options: ["To make variables immutable", "To ensure visibility of changes across threads", "To prevent method overriding", "To create thread-local variables"],
+    answer: 1
+  },
+  {
+    q: "Which exception is thrown when trying to access an array element with an invalid index?",
+    options: ["NullPointerException", "ArrayIndexOutOfBoundsException", "IllegalArgumentException", "ClassCastException"],
+    answer: 1
+  },
+  {
+    q: "What is the output?<br><code>StringBuilder sb = new StringBuilder(\"Hello\");<br>sb.append(\" World\");<br>sb.insert(5, \" Java\");<br>System.out.println(sb);</code>",
+    options: ["Hello World", "Hello Java World", "Hello World Java", "HelloJava World"],
+    answer: 1
+  },
+  {
+    q: "Which of the following is NOT a feature of Java 8 streams?",
+    options: ["Lazy evaluation", "Parallel processing", "External iteration", "Functional programming"],
+    answer: 2
+  },
+  {
+    q: "What happens when you override equals() but not hashCode()?",
+    options: ["It works fine", "It can break HashMap/HashSet contracts", "It causes compilation error", "It makes objects immutable"],
+    answer: 1
+  },
+  {
+    q: "Which method is used to create a new thread using ExecutorService?",
+    options: ["start()", "run()", "execute()", "submit()"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>class Test {<br>&nbsp;&nbsp;public static void main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp;int[] arr = {1, 2, 3};<br>&nbsp;&nbsp;&nbsp;&nbsp;for(int i : arr) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(i == 2) continue;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(i);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>}</code>",
+    options: ["123", "13", "12", "23"],
+    answer: 1
+  },
+  {
+    q: "Which design pattern is used in Java's Runtime.getRuntime()?",
+    options: ["Factory Method", "Singleton", "Observer", "Decorator"],
+    answer: 1
+  },
+  {
+    q: "What will happen?<br><code>try {<br>&nbsp;&nbsp;int x = 10 / 0;<br>} catch (ArithmeticException e) {<br>&nbsp;&nbsp;System.out.println(\"Caught\");<br>} finally {<br>&nbsp;&nbsp;System.out.println(\"Finally\");<br>}<br>System.out.println(\"End\");</code>",
+    options: ["Caught\\nFinally\\nEnd", "Caught\\nEnd", "Finally\\nEnd", "Compilation error"],
+    answer: 0
+  },
+  // Adding more questions to reach 100
+  {
+    q: "What is the default value of a boolean variable in Java?",
+    options: ["true", "false", "null", "0"],
+    answer: 1
+  },
+  {
+    q: "Which keyword is used to prevent inheritance in Java?",
+    options: ["static", "final", "abstract", "private"],
+    answer: 1
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(10 + 20 + \"Hello\");<br>System.out.println(\"Hello\" + 10 + 20);</code>",
+    options: ["30Hello\\nHello30", "30Hello\\nHello1020", "1020Hello\\nHello30", "1020Hello\\nHello1020"],
+    answer: 1
+  },
+  {
+    q: "Which of these is not a Java access modifier?",
+    options: ["public", "protected", "private", "internal"],
+    answer: 3
+  },
+  {
+    q: "What does JVM stand for?",
+    options: ["Java Virtual Machine", "Java Variable Memory", "Java Virtual Method", "Java Variable Method"],
+    answer: 0
+  },
+  {
+    q: "Which method must be implemented by all threads?",
+    options: ["start()", "run()", "execute()", "init()"],
+    answer: 1
+  },
+  {
+    q: "What is the size of int in Java?",
+    options: ["8 bits", "16 bits", "32 bits", "64 bits"],
+    answer: 2
+  },
+  {
+    q: "Which of these is not a primitive data type in Java?",
+    options: ["int", "float", "boolean", "String"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>int x = 5;<br>System.out.println(x++ + ++x);</code>",
+    options: ["10", "11", "12", "13"],
+    answer: 1
+  },
+  {
+    q: "Which class is the parent of all classes in Java?",
+    options: ["Object", "Class", "System", "String"],
+    answer: 0
+  },
+  {
+    q: "What is the output?<br><code>String s = \"Java\";<br>s.concat(\" Programming\");<br>System.out.println(s);</code>",
+    options: ["Java", "Java Programming", "Programming", "null"],
+    answer: 0
+  },
+  {
+    q: "Which keyword is used to create an object in Java?",
+    options: ["new", "create", "alloc", "make"],
+    answer: 0
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(10 == 10.0);</code>",
+    options: ["true", "false", "Compilation error", "Runtime error"],
+    answer: 0
+  },
+  {
+    q: "Which of these is not a valid identifier in Java?",
+    options: ["_var", "$var", "2var", "var2"],
+    answer: 2
+  },
+  {
+    q: "What is the default value of an int variable?",
+    options: ["0", "null", "undefined", "1"],
+    answer: 0
+  },
+  {
+    q: "Which operator is used for string concatenation?",
+    options: ["+", "-", "*", "/"],
+    answer: 0
+  },
+  {
+    q: "What is the output?<br><code>boolean b = true;<br>System.out.println(!b);</code>",
+    options: ["true", "false", "1", "0"],
+    answer: 1
+  },
+  {
+    q: "Which of these is a valid array declaration?",
+    options: ["int arr[];", "int[] arr;", "Both are valid", "None are valid"],
+    answer: 2
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".length());</code>",
+    options: ["4", "5", "6", "7"],
+    answer: 1
+  },
+  {
+    q: "Which keyword is used to handle exceptions?",
+    options: ["try", "catch", "finally", "All of the above"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(Math.max(10, 20));</code>",
+    options: ["10", "20", "30", "0"],
+    answer: 1
+  },
+  {
+    q: "Which of these is not a loop in Java?",
+    options: ["for", "while", "do-while", "repeat"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(10 / 3);</code>",
+    options: ["3", "3.333", "3.0", "Error"],
+    answer: 0
+  },
+  {
+    q: "Which method is used to compare two strings?",
+    options: ["==", "equals()", "compareTo()", "Both equals() and compareTo()"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\" instanceof String);</code>",
+    options: ["true", "false", "Compilation error", "Runtime error"],
+    answer: 0
+  },
+  {
+    q: "Which of these is a valid comment in Java?",
+    options: ["// comment", "/* comment */", "/** comment */", "All of the above"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(Integer.parseInt(\"123\"));</code>",
+    options: ["123", "\"123\"", "Error", "null"],
+    answer: 0
+  },
+  {
+    q: "Which keyword is used to define a constant?",
+    options: ["const", "final", "static", "constant"],
+    answer: 1
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(10 % 3);</code>",
+    options: ["1", "3", "0", "10"],
+    answer: 0
+  },
+  {
+    q: "Which of these is not a valid data type conversion?",
+    options: ["int to long", "long to int", "char to int", "boolean to int"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(Math.abs(-10));</code>",
+    options: ["-10", "10", "0", "Error"],
+    answer: 1
+  },
+  {
+    q: "Which operator has the highest precedence?",
+    options: ["+", "*", "++", "()"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".charAt(0));</code>",
+    options: ["H", "e", "l", "o"],
+    answer: 0
+  },
+  {
+    q: "Which of these is a valid switch statement?",
+    options: ["switch(int)", "switch(String)", "switch(boolean)", "Both int and String"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(Math.pow(2, 3));</code>",
+    options: ["6", "8", "9", "16"],
+    answer: 1
+  },
+  {
+    q: "Which keyword is used to exit from a loop?",
+    options: ["exit", "break", "return", "stop"],
+    answer: 1
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".toUpperCase());</code>",
+    options: ["hello", "HELLO", "Hello", "Error"],
+    answer: 1
+  },
+  {
+    q: "Which of these is not a valid array operation?",
+    options: ["arr.length", "arr.size()", "arr[0]", "arr.clone()"],
+    answer: 1
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(10.0 / 3);</code>",
+    options: ["3", "3.3333333333333335", "3.0", "Error"],
+    answer: 1
+  },
+  {
+    q: "Which interface is implemented by ArrayList?",
+    options: ["List", "Set", "Queue", "Map"],
+    answer: 0
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".substring(1, 3));</code>",
+    options: ["H", "He", "el", "ell"],
+    answer: 2
+  },
+  {
+    q: "Which of these is a valid constructor?",
+    options: ["public ClassName()", "public void ClassName()", "public ClassName", "public ClassName[]()"],
+    answer: 0
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(Math.sqrt(16));</code>",
+    options: ["4", "4.0", "16", "Error"],
+    answer: 1
+  },
+  {
+    q: "Which keyword is used to call parent class constructor?",
+    options: ["this", "super", "parent", "base"],
+    answer: 1
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".replace('l', 'x'));</code>",
+    options: ["Hexxo", "Hello", "Hexlo", "Error"],
+    answer: 0
+  },
+  {
+    q: "Which of these is not a valid method modifier?",
+    options: ["public", "private", "protected", "internal"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(10 << 2);</code>",
+    options: ["20", "40", "80", "160"],
+    answer: 1
+  },
+  {
+    q: "Which class is used for reading input from console?",
+    options: ["Scanner", "Reader", "InputStream", "Console"],
+    answer: 0
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".indexOf('l'));</code>",
+    options: ["0", "1", "2", "3"],
+    answer: 2
+  },
+  {
+    q: "Which of these is a valid generic type?",
+    options: ["List&lt;String&gt;", "List&lt;int&gt;", "List&lt;Integer&gt;", "Both String and Integer"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(10 & 5);</code>",
+    options: ["15", "0", "5", "10"],
+    answer: 1
+  },
+  {
+    q: "Which interface is implemented by HashMap?",
+    options: ["List", "Set", "Map", "Queue"],
+    answer: 2
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".startsWith(\"He\"));</code>",
+    options: ["true", "false", "Error", "null"],
+    answer: 0
+  },
+  {
+    q: "Which keyword is used to define an interface?",
+    options: ["class", "interface", "abstract", "implements"],
+    answer: 1
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(10 | 5);</code>",
+    options: ["15", "0", "5", "10"],
+    answer: 0
+  },
+  {
+    q: "Which of these is not a valid exception type?",
+    options: ["IOException", "RuntimeException", "Exception", "ErrorException"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".lastIndexOf('l'));</code>",
+    options: ["1", "2", "3", "4"],
+    answer: 2
+  },
+  {
+    q: "Which keyword is used to implement an interface?",
+    options: ["extends", "implements", "inherit", "interface"],
+    answer: 1
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(10 ^ 5);</code>",
+    options: ["15", "0", "5", "10"],
+    answer: 0
+  },
+  {
+    q: "Which of these is a valid lambda expression?",
+    options: ["() -> {}", "(int x) -> x * 2", "x -> x * 2", "All of the above"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".trim());</code>",
+    options: ["Hello", "hello", "HELLO", "Error"],
+    answer: 0
+  },
+  {
+    q: "Which interface is used for functional programming?",
+    options: ["Runnable", "Callable", "Function", "All of the above"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(Arrays.toString(new int[]{1,2,3}));</code>",
+    options: ["[1, 2, 3]", "[1,2,3]", "123", "Error"],
+    answer: 0
+  },
+  {
+    q: "Which of these is not a valid stream operation?",
+    options: ["filter", "map", "collect", "sort"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(Stream.of(1,2,3).sum());</code>",
+    options: ["6", "123", "[1, 2, 3]", "Error"],
+    answer: 0
+  },
+  {
+    q: "Which annotation is used for method overriding?",
+    options: ["@Override", "@SuppressWarnings", "@Deprecated", "@FunctionalInterface"],
+    answer: 0
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(Optional.ofNullable(null).orElse(\"default\"));</code>",
+    options: ["null", "default", "Optional.empty", "Error"],
+    answer: 1
+  },
+  {
+    q: "Which of these is a valid date/time API in Java 8?",
+    options: ["Date", "Calendar", "LocalDateTime", "All of the above"],
+    answer: 2
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".chars().count());</code>",
+    options: ["4", "5", "6", "Error"],
+    answer: 1
+  },
+  {
+    q: "Which interface is used for custom serialization?",
+    options: ["Serializable", "Externalizable", "Cloneable", "Comparable"],
+    answer: 1
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(Math.floor(3.7));</code>",
+    options: ["3", "4", "3.0", "4.0"],
+    answer: 2
+  },
+  {
+    q: "Which of these is a valid method reference?",
+    options: ["String::length", "System.out::println", "Math::max", "All of the above"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".codePointAt(0));</code>",
+    options: ["72", "104", "101", "108"],
+    answer: 0
+  },
+  {
+    q: "Which class is used for reading files in Java 8?",
+    options: ["FileReader", "BufferedReader", "Files", "All of the above"],
+    answer: 2
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(Instant.now().toString().length() > 0);</code>",
+    options: ["true", "false", "Error", "null"],
+    answer: 0
+  },
+  {
+    q: "Which of these is a valid CompletableFuture method?",
+    options: ["thenApply", "thenAccept", "thenRun", "All of the above"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".transform(String::toUpperCase));</code>",
+    options: ["HELLO", "hello", "Hello", "Error"],
+    answer: 0
+  },
+  {
+    q: "Which interface is used for parallel streams?",
+    options: ["Stream", "ParallelStream", "BaseStream", "None"],
+    answer: 0
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(List.of(1,2,3).size());</code>",
+    options: ["3", "6", "[1, 2, 3]", "Error"],
+    answer: 0
+  },
+  {
+    q: "Which annotation is used for dependency injection?",
+    options: ["@Autowired", "@Inject", "@Resource", "All of the above"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".indent(2));</code>",
+    options: ["  Hello", "Hello  ", "Hello", "Error"],
+    answer: 0
+  },
+  {
+    q: "Which of these is a valid record in Java?",
+    options: ["record Person(String name) {}", "record Person { String name; }", "class Person(String name) {}", "None of the above"],
+    answer: 0
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".repeat(3));</code>",
+    options: ["HelloHelloHello", "Hello Hello Hello", "Hello3", "Error"],
+    answer: 0
+  },
+  {
+    q: "Which of these is a valid text block?",
+    options: ['"""Hello"""', '"Hello"', '"""\\nHello\\n"""', "All of the above"],
+    answer: 2
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(STR.\"Hello \{name}\");</code>",
+    options: ["Hello name", "Hello \{name}", "Error", "Hello"],
+    answer: 2
+  },
+  {
+    q: "Which of these is a valid sealed class?",
+    options: ["sealed class Shape permits Circle {}", "sealed class Shape {}", "class Shape sealed {}", "None of the above"],
+    answer: 0
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(Math.clamp(5, 1, 10));</code>",
+    options: ["5", "1", "10", "Error"],
+    answer: 0
+  },
+  {
+    q: "Which of these is a valid pattern matching?",
+    options: ["if (obj instanceof String s)", "if (obj instanceof String)", "String s = (String) obj", "All of the above"],
+    answer: 0
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".isBlank());</code>",
+    options: ["true", "false", "Error", "null"],
+    answer: 1
+  },
+  {
+    q: "Which of these is a valid switch expression?",
+    options: ["String result = switch(day) { case 1 -> \"Monday\"; default -> \"Other\"; };", "String result = switch(day) { case 1: \"Monday\"; default: \"Other\"; };", "Both are valid", "None are valid"],
+    answer: 0
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".lines().count());</code>",
+    options: ["1", "5", "0", "Error"],
+    answer: 0
+  },
+  {
+    q: "Which of these is a valid foreign function?",
+    options: ["MethodHandle", "VarHandle", "MemorySegment", "All of the above"],
+    answer: 3
+  },
+  {
+    q: "What is the output?<br><code>System.out.println(\"Hello\".formatted(\"World\"));</code>",
+    options: ["Hello", "World", "HelloWorld", "Error"],
+    answer: 0
+  }
+];
+
+// Get 25 random questions
+const quizData = getRandomQuestions(allQuestions, 25);
+
+let currentQuestion = 0;
+let score = 0;
+let timer;
+let timeLeft = 45;
+
+const questionEl = document.getElementById('question');
+const optionsEl = document.getElementById('options');
+const timerEl = document.getElementById('timer');
+const nextBtn = document.getElementById('nextBtn');
+const submitBtn = document.getElementById('submitBtn');
+const progressEl = document.getElementById('progress');
+const questionCounterEl = document.getElementById('questionCounter');
+
+function loadQuestion(){
+  const q = quizData[currentQuestion];
+
+  // Animate question change
+  questionEl.style.opacity = 0;
+  optionsEl.style.opacity = 0;
+
+  setTimeout(() => {
+    questionCounterEl.innerText = `Question ${currentQuestion + 1} of ${quizData.length}`;
+    questionEl.innerHTML = q.q;
+    optionsEl.innerHTML = '';
+
+    q.options.forEach((opt, index) => {
+      const li = document.createElement('li');
+      li.innerHTML = opt;
+      li.addEventListener('click', () => selectOption(index));
+      optionsEl.appendChild(li);
+    });
+
+    nextBtn.style.display = 'none';
+    submitBtn.style.display = 'none';
+    timeLeft = 45;
+    timerEl.innerText = `Time: ${timeLeft}s`;
+    updateProgress();
+
+    questionEl.style.opacity = 1;
+    optionsEl.style.opacity = 1;
+    startTimer();
+  }, 300);
+}
+
+function startTimer(){
+  clearInterval(timer);
+  timer = setInterval(() => {
+    timeLeft--;
+    timerEl.innerText = `Time: ${timeLeft}s`;
+    updateProgress();
+    if(timeLeft <= 0){
+      clearInterval(timer);
+      goNext(false);
+    }
+  }, 1000);
+}
+
+function updateProgress(){
+  const questionProgress = (currentQuestion / quizData.length) * 100;
+  const timeProgress = ((45 - timeLeft) / 45) * (100 / quizData.length);
+  const totalProgress = questionProgress + timeProgress;
+  progressEl.style.width = Math.min(totalProgress, 100) + '%';
+}
+
+function selectOption(index){
+  clearInterval(timer);
+  const selectedLi = optionsEl.children[index];
+  for(let li of optionsEl.children){
+    li.classList.remove('selected');
+  }
+  selectedLi.classList.add('selected');
+
+  if(currentQuestion === quizData.length - 1){
+    submitBtn.style.display = 'inline-block';
+  } else {
+    nextBtn.style.display = 'inline-block';
+  }
+}
+
+function goNext(selected = true){
+  if(selected){
+    const selectedLi = optionsEl.querySelector('.selected');
+    if(selectedLi){
+      const chosenIndex = Array.from(optionsEl.children).indexOf(selectedLi);
+      if(chosenIndex === quizData[currentQuestion].answer){
+        score += 4;
+      }
+    }
+  }
+
+  currentQuestion++;
+  if(currentQuestion < quizData.length){
+    loadQuestion();
+  } else {
+    showScore();
+  }
+}
+
+function showScore(){
+  const percentage = Math.round((score / (quizData.length * 4)) * 100);
+  let message = "";
+  let color = "";
+
+  if(percentage >= 90){
+    message = "Outstanding! You're a Java expert!";
+    color = "#48bb78";
+  } else if(percentage >= 80){
+    message = "Excellent work! Great Java knowledge!";
+    color = "#38a169";
+  } else if(percentage >= 70){
+    message = "Good job! You know Java well!";
+    color = "#4299e1";
+  } else if(percentage >= 60){
+    message = "Not bad! Keep practicing!";
+    color = "#ed8936";
+  } else {
+    message = "Keep learning! Practice makes perfect!";
+    color = "#e53e3e";
+  }
+
+  const modalContent = `
+    <h2 style="color: ${color};">Your Score: ${score}/${quizData.length * 4}</h2>
+    <div class="modal-score-percentage" style="color: ${color};">${percentage}%</div>
+    <p class="modal-score-message">${message}</p>
+    <button class="modal-retry-btn" onclick="closeModal(); location.reload()">Take Quiz Again</button>
+  `;
+
+  document.getElementById('modalScoreContent').innerHTML = modalContent;
+  document.getElementById('resultModal').style.display = 'block';
+}
+
+function closeModal() {
+  document.getElementById('resultModal').style.display = 'none';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+  const modal = document.getElementById('resultModal');
+  const exitModal = document.getElementById('exitModal');
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+  if (event.target == exitModal) {
+    exitModal.style.display = 'none';
+  }
+}
+
+// Exit confirmation functions
+function showExitConfirmation() {
+  document.getElementById('exitModal').style.display = 'block';
+}
+
+function closeExitModal() {
+  document.getElementById('exitModal').style.display = 'none';
+}
+
+function confirmExit() {
+  // Redirect to the main website or home page
+  window.location.href = 'index.html'; // Change this to your main page
+}
+
+nextBtn.addEventListener('click', () => goNext(true));
+submitBtn.addEventListener('click', () => goNext(true));
+
+loadQuestion();
+</script>
+</body>
+</html>
