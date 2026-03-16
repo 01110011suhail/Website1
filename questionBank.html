@@ -1,0 +1,3010 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Java FAQs - Basics & OOP | JavaMastery</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar" id="sidebar">
+
+<div class="sidebar-header">
+<h3>Java FAQs</h3>
+<span class="close-btn" onclick="closeSidebar()">✖</span>
+</div>
+
+<ul>
+<li><a href="#platform-independent">Platform Independence</a></li>
+<li><a href="#jdk-jre-jvm">JDK, JRE, JVM</a></li>
+<li><a href="#while-do-while">While vs Do-While</a></li>
+<li><a href="#equals-operator">== vs equals()</a></li>
+<li><a href="#array-arraylist">Array vs ArrayList</a></li>
+<li><a href="#method-overloading">Method Overloading</a></li>
+<li><a href="#main-method">Main Method</a></li>
+<li><a href="#primitive-types">Primitive Data Types</a></li>
+<li><a href="#loops">Loops</a></li>
+<li><a href="#string-classes">String Classes</a></li>
+<li><a href="#oop-principles">OOP Principles</a></li>
+<li><a href="#class-vs-object">Class vs Object</a></li>
+<li><a href="#encapsulation">Encapsulation</a></li>
+<li><a href="#inheritance-types">Inheritance & Types</a></li>
+<li><a href="#overloading-vs-overriding">Overloading vs Overriding</a></li>
+<li><a href="#abstract-vs-interface">Abstract vs Interface</a></li>
+<li><a href="#runtime-polymorphism">Runtime Polymorphism</a></li>
+<li><a href="#data-hiding">Data Hiding</a></li>
+<li><a href="#multiple-inheritance">Multiple Inheritance</a></li>
+<li><a href="#interface-java">Interface in Java</a></li>
+<li><a href="#abstraction-deep">Abstraction (Detailed)</a></li>
+<li><a href="#polymorphism-deep">Polymorphism (Detailed)</a></li>
+<li><a href="#inheritance-deep">Inheritance (Detailed)</a></li>
+<li><a href="#encapsulation-deep">Encapsulation (Detailed)</a></li>
+</ul>
+
+</aside>
+
+<div id="overlay" onclick="closeSidebar()"></div>
+
+
+<!-- NAVBAR -->
+
+<header class="header">
+
+<nav class="navbar container">
+
+<div class="nav-left">
+
+<div class="menu-icon" onclick="toggleSidebar()">
+<i class="fas fa-bars"></i>
+</div>
+
+<div class="logo">JavaMastery</div>
+
+</div>
+
+<div class="nav-center">
+
+<input type="text" placeholder="Search FAQs..." class="search-bar">
+
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+<li><a href="basic.html">Basics</a></li>
+<li><a href="advanced.html">Advanced</a></li>
+<li><a href="programs.html">Programs</a></li>
+<li><a href="interview.html">Interview</a></li>
+<li><a href="mcq.html">MCQ Quiz</a></li>
+<li><a href="questionBank.html">Java FAQs</a></li>
+
+</ul>
+
+<button id="darkToggle">
+<i class="fas fa-moon"></i>
+</button>
+
+</nav>
+
+</header>
+
+
+
+<!-- PAGE TITLE -->
+
+<section class="page-title">
+
+<h1>Java FAQs - Basics & OOP Concepts</h1>
+
+<p>Get answers to the most common Java programming questions covering basics and object-oriented programming. 24 comprehensive questions with detailed explanations and code examples.</p>
+
+</section>
+
+
+<!-- FAQ SECTION -->
+
+<section class="faq container">
+
+<h2 class="section-title">Java FAQs - Basics & OOP (24 Questions)</h2>
+
+<div class="faq-container">
+
+<div class="faq-item" id="platform-independent">
+
+<button class="faq-question">
+<span>1️⃣ Why is Java platform independent?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+Java is platform independent because of the Java Virtual Machine (JVM). Here's how it works:<br><br>
+
+<strong>Write Once, Run Anywhere (WORA):</strong><br>
+- Java source code (.java files) is compiled into bytecode (.class files)<br>
+- Bytecode is platform-independent and can run on any system with JVM<br>
+- JVM acts as an interpreter between bytecode and the operating system<br><br>
+
+<strong>Key Points:</strong><br>
+• JVM is platform-specific (different JVMs for Windows, Linux, Mac)<br>
+• Bytecode is the same regardless of platform<br>
+• No need to recompile code for different operating systems<br>
+• This makes Java highly portable compared to languages like C/C++
+</div>
+
+</div>
+
+<div class="faq-item" id="jdk-jre-jvm">
+
+<button class="faq-question">
+<span>2️⃣ What is the difference between JDK, JRE, and JVM?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+<strong>JVM (Java Virtual Machine):</strong><br>
+• Executes Java bytecode<br>
+• Provides runtime environment for Java programs<br>
+• Platform-specific component<br>
+• Handles memory management and garbage collection<br><br>
+
+<strong>JRE (Java Runtime Environment):</strong><br>
+• Contains JVM + core libraries<br>
+• Required to run Java applications<br>
+• Includes class libraries, loader, and verifier<br>
+• Does NOT include development tools<br><br>
+
+<strong>JDK (Java Development Kit):</strong><br>
+• Contains JRE + development tools<br>
+• Includes compiler (javac), debugger, and other tools<br>
+• Required for developing Java applications<br>
+• Supersedes JRE for development purposes<br><br>
+
+<strong>Simple Analogy:</strong><br>
+• JVM = Engine (runs the car)<br>
+• JRE = Car without tools (can drive but can't build/repair)<br>
+• JDK = Complete car with tools (can drive AND build/repair)
+</div>
+
+</div>
+
+<div class="faq-item" id="while-do-while">
+
+<button class="faq-question">
+<span>3️⃣ What is the difference between while and do-while loops?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+<strong>While Loop:</strong><br>
+• Entry-controlled loop<br>
+• Condition is checked BEFORE executing the loop body<br>
+• May execute zero times if condition is false initially<br><br>
+
+<strong>Do-While Loop:</strong><br>
+• Exit-controlled loop<br>
+• Condition is checked AFTER executing the loop body<br>
+• Executes at least once, even if condition is false<br><br>
+
+<strong>Syntax Comparison:</strong><br>
+<pre><code>// While loop
+while (condition) {
+    // code to execute
+}
+
+// Do-while loop
+do {
+    // code to execute
+} while (condition);</code></pre><br>
+
+<strong>Example:</strong><br>
+<pre><code>// While loop - may not execute
+int i = 5;
+while (i < 5) {
+    System.out.println("While: " + i);
+    i++;
+}
+
+// Do-while loop - executes at least once
+int j = 5;
+do {
+    System.out.println("Do-While: " + j);
+    j++;
+} while (j < 5);</code></pre>
+</div>
+
+</div>
+
+<div class="faq-item" id="equals-operator">
+
+<button class="faq-question">
+<span>4️⃣ What is the difference between == and equals() method?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+<strong>== Operator:</strong><br>
+• Compares memory references (addresses)<br>
+• Used for primitive types and object references<br>
+• Checks if two references point to the same memory location<br><br>
+
+<strong>equals() Method:</strong><br>
+• Compares content/values of objects<br>
+• Defined in Object class, can be overridden<br>
+• Checks if two objects are meaningfully equal<br><br>
+
+<table class="comparison-table">
+<tr>
+<th>== Operator Examples</th>
+<th>equals() Method Examples</th>
+</tr>
+<tr>
+<td>
+<pre><code>String s1 = "Hello";
+String s2 = "Hello";
+String s3 = new String("Hello");
+
+<span class="highlight">System.out.println(s1 == s2);</span>        // true (same reference)
+<span class="highlight">System.out.println(s1 == s3);</span>        // false (different references)
+
+// For primitives
+<span class="highlight">int a = 5, b = 5;
+System.out.println(a == b);</span>        // true (same value)</code></pre>
+</td>
+<td>
+<pre><code>String s1 = "Hello";
+String s2 = "Hello";
+String s3 = new String("Hello");
+
+<span class="highlight">System.out.println(s1.equals(s2));</span>   // true (same content)
+<span class="highlight">System.out.println(s1.equals(s3));</span>   // true (same content)
+
+// For custom objects
+<span class="highlight">Person p1 = new Person("John");
+Person p2 = new Person("John");
+System.out.println(p1.equals(p2));</span>   // depends on equals() implementation</code></pre>
+</td>
+</tr>
+</table>
+
+<strong>Key Points:</strong><br>
+• Always use <strong>equals()</strong> for object content comparison<br>
+• <strong>==</strong> can give unexpected results for objects<br>
+• Override <strong>equals()</strong> in custom classes for proper comparison
+</div>
+
+</div>
+
+<div class="faq-item" id="array-arraylist">
+
+<button class="faq-question">
+<span>5️⃣ What is the difference between Array and ArrayList?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+<strong>Array:</strong><br>
+• Fixed size - cannot be changed after creation<br>
+• Part of Java language (primitive feature)<br>
+• Can store primitive types and objects<br>
+• Faster access and less memory overhead<br>
+• Manual size management<br><br>
+
+<strong>ArrayList:</strong><br>
+• Dynamic size - can grow and shrink<br>
+• Part of Java Collections Framework<br>
+• Can only store objects (not primitives directly)<br>
+• More flexible and feature-rich<br>
+• Automatic size management<br><br>
+
+<table class="comparison-table">
+<tr>
+<th>Array Example</th>
+<th>ArrayList Example</th>
+</tr>
+<tr>
+<td>
+<pre><code>// Fixed size array
+<span class="highlight">int[] arr = new int[5];</span>
+String[] strArr = new String[10];
+
+// Direct access
+<span class="highlight">arr[0] = 10;</span>
+<span class="highlight">int length = arr.length;</span>   // Fixed length
+
+// Cannot resize
+// arr = new int[10]; // Need to create new array</code></pre>
+</td>
+<td>
+<pre><code>// Dynamic ArrayList
+<span class="highlight">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();</span>
+ArrayList&lt;String&gt; strList = new ArrayList&lt;&gt;();
+
+// Add elements dynamically
+<span class="highlight">list.add(10);</span>
+<span class="highlight">list.add(20);</span>
+<span class="highlight">int size = list.size();</span>    // Current size
+
+// Remove elements
+<span class="highlight">list.remove(0);</span>            // Remove by index</code></pre>
+</td>
+</tr>
+</table>
+
+<strong>When to use:</strong><br>
+• Use <strong>Array</strong> when size is fixed and performance is critical<br>
+• Use <strong>ArrayList</strong> when size may change and flexibility is needed
+</div>
+
+</div>
+
+<div class="faq-item" id="method-overloading">
+
+<button class="faq-question">
+<span>6️⃣ What is method overloading in Java?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+Method overloading is a feature that allows a class to have multiple methods with the same name but different parameters. It's a form of compile-time polymorphism.<br><br>
+
+<strong>Key Characteristics:</strong><br>
+• Same method name<br>
+• Different parameter lists (type, number, or order)<br>
+• Can have different return types<br>
+• Must be in the same class<br><br>
+
+<strong>Types of Overloading:</strong><br>
+1. <strong>Different number of parameters:</strong><br>
+<pre><code>void display(int a) { ... }
+void display(int a, int b) { ... }</code></pre><br>
+
+2. <strong>Different types of parameters:</strong><br>
+<pre><code>void display(int a) { ... }
+void display(double a) { ... }</code></pre><br>
+
+3. <strong>Different order of parameters:</strong><br>
+<pre><code>void display(int a, double b) { ... }
+void display(double a, int b) { ... }</code></pre><br>
+
+<strong>Example:</strong><br>
+<pre><code>class Calculator {
+    // Method overloading
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}</code></pre><br>
+
+<strong>Benefits:</strong><br>
+• Improves code readability<br>
+• Provides flexibility to users<br>
+• Reduces method name complexity<br>
+• Achieved at compile time (static polymorphism)
+</div>
+
+</div>
+
+<div class="faq-item" id="main-method">
+
+<button class="faq-question">
+<span>7️⃣ What is the main method in Java?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+The main method is the entry point of any Java application. It's the first method that gets executed when you run a Java program.<br><br>
+
+<strong>Signature:</strong><br>
+<pre><code>public static void main(String[] args) {
+    // Program execution starts here
+}</code></pre><br>
+
+<strong>Components Breakdown:</strong><br>
+• <strong>public:</strong> Accessible from anywhere<br>
+• <strong>static:</strong> Can be called without creating an object<br>
+• <strong>void:</strong> Doesn't return any value<br>
+• <strong>main:</strong> Method name (fixed)<br>
+• <strong>String[] args:</strong> Command-line arguments<br><br>
+
+<strong>Why these modifiers?</strong><br>
+• <strong>public:</strong> JVM needs to access it from outside the class<br>
+• <strong>static:</strong> JVM can call it without instantiating the class<br>
+• <strong>void:</strong> Main method doesn't need to return anything<br>
+• <strong>String[] args:</strong> Allows passing arguments from command line<br><br>
+
+<strong>Example:</strong><br>
+<pre><code>public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+
+        // Access command line arguments
+        if (args.length > 0) {
+            System.out.println("Arguments: " + args[0]);
+        }
+    }
+}</code></pre><br>
+
+<strong>Running the program:</strong><br>
+<pre><code>javac HelloWorld.java
+java HelloWorld arg1 arg2</code></pre>
+</div>
+
+</div>
+
+<div class="faq-item" id="primitive-types">
+
+<button class="faq-question">
+<span>8️⃣ What are primitive data types in Java?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+Primitive data types are the basic building blocks of data in Java. They are predefined by the language and are not objects.<br><br>
+
+<strong>8 Primitive Data Types:</strong><br><br>
+
+<strong>Integer Types:</strong><br>
+• <strong>byte:</strong> 8-bit signed (-128 to 127)<br>
+• <strong>short:</strong> 16-bit signed (-32,768 to 32,767)<br>
+• <strong>int:</strong> 32-bit signed (-2^31 to 2^31-1)<br>
+• <strong>long:</strong> 64-bit signed (-2^63 to 2^63-1)<br><br>
+
+<strong>Floating-Point Types:</strong><br>
+• <strong>float:</strong> 32-bit IEEE 754 (6-7 decimal digits)<br>
+• <strong>double:</strong> 64-bit IEEE 754 (15 decimal digits)<br><br>
+
+<strong>Other Types:</strong><br>
+• <strong>char:</strong> 16-bit Unicode character<br>
+• <strong>boolean:</strong> true or false<br><br>
+
+<strong>Default Values:</strong><br>
+<pre><code>byte b;     // 0
+short s;    // 0
+int i;      // 0
+long l;     // 0L
+float f;    // 0.0f
+double d;   // 0.0
+char c;     // '\u0000'
+boolean bool; // false</code></pre><br>
+
+<strong>Key Points:</strong><br>
+• Stored in stack memory<br>
+• Have default values<br>
+• Cannot be null<br>
+• Faster than objects<br>
+• Used for performance-critical operations
+</div>
+
+</div>
+
+<div class="faq-item" id="loops">
+
+<button class="faq-question">
+<span>9️⃣ What is a loop in Java?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+A loop is a programming construct that allows you to execute a block of code repeatedly until a certain condition is met.<br><br>
+
+<strong>Types of Loops in Java:</strong><br><br>
+
+<strong>1. For Loop:</strong><br>
+• Used when number of iterations is known<br>
+• Combines initialization, condition, and increment<br>
+<pre><code>for (int i = 0; i < 5; i++) {
+    System.out.println("Count: " + i);
+}</code></pre><br>
+
+<strong>2. While Loop:</strong><br>
+• Entry-controlled loop<br>
+• Condition checked before execution<br>
+<pre><code>int i = 0;
+while (i < 5) {
+    System.out.println("Count: " + i);
+    i++;
+}</code></pre><br>
+
+<strong>3. Do-While Loop:</strong><br>
+• Exit-controlled loop<br>
+• Executes at least once<br>
+<pre><code>int i = 0;
+do {
+    System.out.println("Count: " + i);
+    i++;
+} while (i < 5);</code></pre><br>
+
+<strong>4. Enhanced For Loop (For-Each):</strong><br>
+• Used with arrays and collections<br>
+• Simplified syntax<br>
+<pre><code>int[] numbers = {1, 2, 3, 4, 5};
+for (int num : numbers) {
+    System.out.println(num);
+}</code></pre><br>
+
+<strong>Loop Control Statements:</strong><br>
+• <strong>break:</strong> Exit the loop immediately<br>
+• <strong>continue:</strong> Skip current iteration and continue<br>
+• <strong>return:</strong> Exit the method entirely<br><br>
+
+<strong>Infinite Loops:</strong><br>
+<pre><code>// These create infinite loops
+while (true) { ... }
+for (;;) { ... }</code></pre>
+</div>
+
+</div>
+
+<div class="faq-item" id="string-classes">
+
+<button class="faq-question">
+<span>🔟 What is the difference between String, StringBuffer, and StringBuilder?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+All three classes are used for string manipulation, but they differ in mutability, thread-safety, and performance.<br><br>
+
+<strong>String:</strong><br>
+• <strong>Immutable:</strong> Cannot be changed after creation<br>
+• <strong>Thread-safe:</strong> Safe for multi-threaded environments<br>
+• <strong>Memory:</strong> Creates new object for each modification<br>
+• <strong>Performance:</strong> Slower for frequent modifications<br>
+• <strong>Use when:</strong> String content won't change often<br><br>
+
+<strong>StringBuffer:</strong><br>
+• <strong>Mutable:</strong> Can be modified after creation<br>
+• <strong>Thread-safe:</strong> Synchronized methods<br>
+• <strong>Memory:</strong> Modifies existing object<br>
+• <strong>Performance:</strong> Slower than StringBuilder due to synchronization<br>
+• <strong>Use when:</strong> Multi-threaded string manipulation<br><br>
+
+<strong>StringBuilder:</strong><br>
+• <strong>Mutable:</strong> Can be modified after creation<br>
+• <strong>Not thread-safe:</strong> No synchronization<br>
+• <strong>Memory:</strong> Modifies existing object<br>
+• <strong>Performance:</strong> Fastest for string operations<br>
+• <strong>Use when:</strong> Single-threaded string manipulation<br><br>
+
+<strong>Performance Comparison:</strong><br>
+<pre><code>// String - Creates 1001 objects
+String str = "";
+for(int i = 0; i < 1000; i++) {
+    str += i;  // New object each time
+}
+
+// StringBuilder - Creates 1 object
+StringBuilder sb = new StringBuilder();
+for(int i = 0; i < 1000; i++) {
+    sb.append(i);  // Modifies same object
+}
+String result = sb.toString();</code></pre><br>
+
+<strong>Common Methods:</strong><br>
+• <code>append()</code> - Add content<br>
+• <code>insert()</code> - Insert at position<br>
+• <code>delete()</code> - Remove characters<br>
+• <code>reverse()</code> - Reverse string<br>
+• <code>toString()</code> - Convert to String<br><br>
+
+<strong>Choosing the Right One:</strong><br>
+• Use <strong>String</strong> for constants and single operations<br>
+• Use <strong>StringBuilder</strong> for single-threaded string building<br>
+• Use <strong>StringBuffer</strong> for multi-threaded string building
+</div>
+
+</div>
+
+<div class="faq-item" id="oop-principles">
+
+<button class="faq-question">
+<span>1️⃣ What are OOP principles?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+Object-Oriented Programming (OOP) is based on four fundamental principles that help in creating modular, maintainable, and scalable software. These principles are the foundation of OOP languages like Java.<br><br>
+
+<strong>1. Encapsulation:</strong><br>
+• Bundling data and methods that operate on that data within a single unit (class)<br>
+• Hiding internal implementation details from outside world<br>
+• Providing controlled access through public methods<br><br>
+
+<strong>2. Inheritance:</strong><br>
+• Mechanism where one class acquires properties and behaviors of another class<br>
+• Promotes code reusability and establishes relationships between classes<br>
+• Creates a hierarchy of classes<br><br>
+
+<strong>3. Polymorphism:</strong><br>
+• Ability of an object to take many forms<br>
+• Same method name can behave differently based on object type<br>
+• Achieved through method overloading and overriding<br><br>
+
+<strong>4. Abstraction:</strong><br>
+• Hiding complex implementation details and showing only essential features<br>
+• Focuses on what an object does rather than how it does it<br>
+• Achieved through abstract classes and interfaces<br><br>
+
+<strong>Benefits of OOP Principles:</strong><br>
+• <strong>Modularity:</strong> Code is organized into independent units<br>
+• <strong>Reusability:</strong> Existing code can be reused<br>
+• <strong>Maintainability:</strong> Easier to modify and extend<br>
+• <strong>Security:</strong> Data hiding prevents unauthorized access<br>
+• <strong>Scalability:</strong> Easy to add new features
+</div>
+
+</div>
+
+<div class="faq-item" id="class-vs-object">
+
+<button class="faq-question">
+<span>2️⃣ Difference between class and object</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+<strong>Class:</strong><br>
+• <strong>Blueprint/Template:</strong> A class is a blueprint or template for creating objects<br>
+• <strong>Logical Entity:</strong> It is a logical entity that defines the structure and behavior<br>
+• <strong>Declaration:</strong> Defined using the <code>class</code> keyword<br>
+• <strong>Memory:</strong> Doesn't occupy memory when declared<br>
+• <strong>Single Copy:</strong> Only one copy exists in memory<br>
+• <strong>Components:</strong> Contains fields (variables) and methods<br><br>
+
+<strong>Object:</strong><br>
+• <strong>Instance:</strong> An object is an instance of a class<br>
+• <strong>Physical Entity:</strong> It is a physical entity that occupies memory<br>
+• <strong>Creation:</strong> Created using the <code>new</code> keyword<br>
+• <strong>Memory:</strong> Occupies memory when created<br>
+• <strong>Multiple Copies:</strong> Multiple objects can be created from same class<br>
+• <strong>Usage:</strong> Used to access class members<br><br>
+
+<strong>Example:</strong><br>
+<pre><code>// Class (Blueprint)
+class Car {
+    String color;
+    String model;
+    
+    void start() {
+        System.out.println("Car started");
+    }
+}
+
+// Objects (Instances)
+Car car1 = new Car();  // First object
+Car car2 = new Car();  // Second object
+
+car1.color = "Red";
+car2.color = "Blue";</code></pre><br>
+
+<strong>Key Points:</strong><br>
+• Class is like a recipe, object is like the actual dish<br>
+• Multiple objects can be created from one class<br>
+• Each object has its own copy of instance variables
+</div>
+
+</div>
+
+<div class="faq-item" id="encapsulation">
+
+<button class="faq-question">
+<span>3️⃣ What is encapsulation with example</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+Encapsulation is the process of wrapping data (variables) and methods that operate on that data into a single unit called a class. It hides the internal implementation details from the outside world and provides controlled access through public methods.<br><br>
+
+<strong>Key Concepts:</strong><br>
+• <strong>Data Hiding:</strong> Internal data is hidden from external access<br>
+• <strong>Access Control:</strong> Controlled access through getter/setter methods<br>
+• <strong>Security:</strong> Prevents unauthorized access to data<br>
+• <strong>Modularity:</strong> Changes to internal implementation don't affect external code<br><br>
+
+<strong>Example - Bank Account:</strong><br>
+<pre><code>class BankAccount {
+    // Private variables (encapsulated data)
+    private String accountNumber;
+    private double balance;
+    private String accountHolder;
+    
+    // Constructor
+    public BankAccount(String accNum, String holder) {
+        this.accountNumber = accNum;
+        this.accountHolder = holder;
+        this.balance = 0.0;
+    }
+    
+    // Public getter methods (controlled access)
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+    
+    public double getBalance() {
+        return balance;
+    }
+    
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+    
+    // Public setter methods with validation
+    public void setAccountHolder(String holder) {
+        if (holder != null && !holder.trim().isEmpty()) {
+            this.accountHolder = holder;
+        }
+    }
+    
+    // Public methods for operations
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: $" + amount);
+        }
+    }
+    
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: $" + amount);
+        } else {
+            System.out.println("Invalid withdrawal amount");
+        }
+    }
+}</code></pre><br>
+
+<strong>Usage:</strong><br>
+<pre><code>BankAccount account = new BankAccount("123456", "John Doe");
+account.deposit(1000);
+account.withdraw(500);
+System.out.println("Balance: $" + account.getBalance());</code></pre><br>
+
+<strong>Benefits:</strong><br>
+• Protects data integrity<br>
+• Allows validation of data<br>
+• Provides flexibility to change implementation<br>
+• Improves maintainability
+</div>
+
+</div>
+
+<div class="faq-item" id="inheritance-types">
+
+<button class="faq-question">
+<span>4️⃣ What is inheritance and its types</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+Inheritance is a mechanism in OOP where one class (child/subclass) acquires the properties and behaviors of another class (parent/superclass). It promotes code reusability and establishes a relationship between classes.<br><br>
+
+<strong>Basic Syntax:</strong><br>
+<pre><code>class ChildClass extends ParentClass {
+    // Child class can use parent's methods and variables
+    // Can also add new methods or override existing ones
+}</code></pre><br>
+
+<strong>Types of Inheritance:</strong><br><br>
+
+<strong>1. Single Inheritance:</strong><br>
+• One child class inherits from one parent class<br>
+<pre><code>class Animal { }
+class Dog extends Animal { }</code></pre><br>
+
+<strong>2. Multilevel Inheritance:</strong><br>
+• Child class becomes parent for another class<br>
+<pre><code>class Animal { }
+class Dog extends Animal { }
+class Puppy extends Dog { }</code></pre><br>
+
+<strong>3. Hierarchical Inheritance:</strong><br>
+• Multiple child classes inherit from one parent class<br>
+<pre><code>class Animal { }
+class Dog extends Animal { }
+class Cat extends Animal { }
+class Cow extends Animal { }</code></pre><br>
+
+<strong>4. Multiple Inheritance (Not supported in Java with classes):</strong><br>
+• One child class inherits from multiple parent classes<br>
+• Supported through interfaces in Java<br><br>
+
+<strong>Example:</strong><br>
+<pre><code>class Vehicle {
+    String brand;
+    int speed;
+    
+    void start() {
+        System.out.println("Vehicle started");
+    }
+}
+
+class Car extends Vehicle {
+    int wheels = 4;
+    
+    void drive() {
+        System.out.println("Car is driving");
+    }
+}
+
+class ElectricCar extends Car {
+    int batteryCapacity;
+    
+    void charge() {
+        System.out.println("Charging electric car");
+    }
+}</code></pre><br>
+
+<strong>Key Keywords:</strong><br>
+• <code>extends</code> - Used to inherit from a class<br>
+• <code>super</code> - Refers to parent class members<br>
+• <code>final</code> - Prevents inheritance<br><br>
+
+<strong>Benefits:</strong><br>
+• Code reusability<br>
+• Method overriding<br>
+• Establishes IS-A relationship<br>
+• Reduces code duplication
+</div>
+
+</div>
+
+<div class="faq-item" id="overloading-vs-overriding">
+
+<button class="faq-question">
+<span>5️⃣ Difference between method overloading and overriding</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+<strong>Method Overloading:</strong><br>
+• <strong>Compile-time Polymorphism:</strong> Resolved during compilation<br>
+• <strong>Same Class:</strong> Methods are in the same class<br>
+• <strong>Method Signature:</strong> Same name, different parameters<br>
+• <strong>Inheritance:</strong> Not required<br>
+• <strong>Return Type:</strong> Can be different<br>
+• <strong>Access Modifier:</strong> Can be different<br>
+• <strong>Purpose:</strong> Increase readability and reusability<br><br>
+
+<strong>Method Overriding:</strong><br>
+• <strong>Runtime Polymorphism:</strong> Resolved during runtime<br>
+• <strong>Different Classes:</strong> Methods are in different classes (inheritance required)<br>
+• <strong>Method Signature:</strong> Must be exactly same<br>
+• <strong>Inheritance:</strong> Required (extends or implements)<br>
+• <strong>Return Type:</strong> Must be same or covariant<br>
+• <strong>Access Modifier:</strong> Must be same or more accessible<br>
+• <strong>Purpose:</strong> Provide specific implementation<br><br>
+
+<table class="comparison-table">
+<tr>
+<th>Overloading Example</th>
+<th>Overriding Example</th>
+</tr>
+<tr>
+<td>
+<pre><code>class Calculator {
+    // Same method name, different parameters
+    <span class="highlight">int add(int a, int b) {</span>
+        return a + b;
+    }
+    
+    <span class="highlight">double add(double a, double b) {</span>
+        return a + b;
+    }
+    
+    <span class="highlight">int add(int a, int b, int c) {</span>
+        return a + b + c;
+    }
+}</code></pre>
+</td>
+<td>
+<pre><code>class Animal {
+    <span class="highlight">void makeSound() {</span>
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    // Same signature, different implementation
+    <span class="highlight">@Override
+    void makeSound() {</span>
+        System.out.println("Dog barks");
+    }
+}</code></pre>
+</td>
+</tr>
+</table>
+
+<strong>Key Differences:</strong><br>
+• <strong>Overloading:</strong> Same class, different parameters (highlighted in <span class="highlight-text">yellow</span>)<br>
+• <strong>Overriding:</strong> Different classes, same signature (highlighted in <span class="highlight-text">yellow</span>)<br>
+• <strong>Overloading:</strong> Compile-time binding<br>
+• <strong>Overriding:</strong> Runtime binding
+</div>
+
+</div>
+
+<div class="faq-item" id="abstract-vs-interface">
+
+<button class="faq-question">
+<span>6️⃣ Difference between abstract class and interface</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+<strong>Abstract Class:</strong><br>
+• <strong>Partial Abstraction:</strong> Can have both abstract and concrete methods<br>
+• <strong>Variables:</strong> Can have instance variables, static variables, constants<br>
+• <strong>Constructors:</strong> Can have constructors<br>
+• <strong>Access Modifiers:</strong> Can use all access modifiers<br>
+• <strong>Inheritance:</strong> Supports single inheritance<br>
+• <strong>Keyword:</strong> <code>abstract</code><br>
+• <strong>Usage:</strong> When classes share common behavior<br><br>
+
+<strong>Interface:</strong><br>
+• <strong>Complete Abstraction:</strong> All methods are abstract (before Java 8)<br>
+• <strong>Variables:</strong> Only public static final constants<br>
+• <strong>Constructors:</strong> Cannot have constructors<br>
+• <strong>Access Modifiers:</strong> All members are public by default<br>
+• <strong>Inheritance:</strong> Supports multiple inheritance<br>
+• <strong>Keyword:</strong> <code>interface</code><br>
+• <strong>Usage:</strong> When classes have different implementations<br><br>
+
+<table class="comparison-table">
+<tr>
+<th>Abstract Class Example</th>
+<th>Interface Example</th>
+</tr>
+<tr>
+<td>
+<pre><code><span class="highlight">abstract class Shape {</span>
+    protected String color;
+    
+    // Constructor
+    public Shape(String color) {
+        this.color = color;
+    }
+    
+    // Abstract method
+    <span class="highlight">abstract double calculateArea();</span>
+    
+    // Concrete method
+    public void displayColor() {
+        System.out.println("Color: " + color);
+    }
+}
+
+class Circle extends Shape {
+    private double radius;
+    
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+    
+    @Override
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}</code></pre>
+</td>
+<td>
+<pre><code><span class="highlight">interface Drawable {</span>
+    // Constant
+    String TOOL = "PEN";
+    
+    // Abstract methods
+    <span class="highlight">void draw();
+    void erase();</span>
+    
+    // Default method (Java 8+)
+    default void resize() {
+        System.out.println("Resizing shape");
+    }
+    
+    // Static method (Java 8+)
+    static void printTool() {
+        System.out.println("Using: " + TOOL);
+    }
+}
+
+class Rectangle implements Drawable {
+    @Override
+    public void draw() {
+        System.out.println("Drawing rectangle");
+    }
+    
+    @Override
+    public void erase() {
+        System.out.println("Erasing rectangle");
+    }
+}</code></pre>
+</td>
+</tr>
+</table>
+
+<strong>When to Use:</strong><br>
+• <strong>Abstract Class:</strong> When you want to share code among closely related classes<br>
+• <strong>Interface:</strong> When you want to define a contract for unrelated classes
+</div>
+
+</div>
+
+<div class="faq-item" id="runtime-polymorphism">
+
+<button class="faq-question">
+<span>7️⃣ What is runtime polymorphism</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+Runtime polymorphism, also known as dynamic polymorphism or late binding, is a process where a call to an overridden method is resolved at runtime rather than compile time. It occurs when a superclass reference refers to a subclass object.<br><br>
+
+<strong>Key Characteristics:</strong><br>
+• <strong>Method Overriding:</strong> Achieved through method overriding<br>
+• <strong>Inheritance:</strong> Required between classes<br>
+• <strong>Runtime Resolution:</strong> Method call resolved at runtime<br>
+• <strong>Dynamic Binding:</strong> JVM determines which method to call<br>
+• <strong>Superclass Reference:</strong> Reference variable of parent class<br><br>
+
+<strong>Example:</strong><br>
+<pre><code>class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        // Runtime polymorphism
+        Animal animal1 = new Dog();  // Parent reference, child object
+        Animal animal2 = new Cat();  // Parent reference, child object
+        
+        animal1.makeSound();  // Calls Dog's makeSound() - resolved at runtime
+        animal2.makeSound();  // Calls Cat's makeSound() - resolved at runtime
+    }
+}</code></pre><br>
+
+<strong>How it Works:</strong><br>
+1. <strong>Compile Time:</strong> Compiler checks if method exists in parent class<br>
+2. <strong>Runtime:</strong> JVM looks for actual object type and calls appropriate method<br>
+3. <strong>Dynamic Method Dispatch:</strong> JVM decides which method to execute<br><br>
+
+<strong>Rules for Runtime Polymorphism:</strong><br>
+• Must have inheritance relationship<br>
+• Method must be overridden in child class<br>
+• Method signatures must be same<br>
+• Return types must be same or covariant<br>
+• Access modifiers can be same or more accessible<br><br>
+
+<strong>Benefits:</strong><br>
+• <strong>Flexibility:</strong> Same code works with different objects<br>
+• <strong>Extensibility:</strong> Easy to add new subclasses<br>
+• <strong>Loose Coupling:</strong> Code depends on abstractions<br>
+• <strong>Code Reusability:</strong> Common interface for different implementations<br><br>
+
+<strong>Real-world Example:</strong><br>
+<pre><code>// Payment processing system
+PaymentProcessor processor = new CreditCardPayment();  // Runtime polymorphism
+processor.processPayment(100.0);  // Calls credit card specific method
+
+processor = new PayPalPayment();  // Same reference, different object
+processor.processPayment(100.0);  // Calls PayPal specific method</code></pre>
+</div>
+
+</div>
+
+<div class="faq-item" id="data-hiding">
+
+<button class="faq-question">
+<span>8️⃣ What is data hiding</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+Data hiding is a fundamental concept in OOP that refers to the practice of hiding the internal data of a class from external access and providing controlled access through public methods. It ensures that the data is not directly accessible from outside the class.<br><br>
+
+<strong>Key Concepts:</strong><br>
+• <strong>Access Control:</strong> Restricting direct access to data members<br>
+• <strong>Encapsulation:</strong> Data hiding is achieved through encapsulation<br>
+• <strong>Security:</strong> Protects data from unauthorized access<br>
+• <strong>Validation:</strong> Allows data validation before setting values<br>
+• <strong>Flexibility:</strong> Internal implementation can be changed without affecting external code<br><br>
+
+<strong>Access Modifiers in Java:</strong><br>
+• <strong>private:</strong> Accessible only within the same class<br>
+• <strong>default (no modifier):</strong> Accessible within the same package<br>
+• <strong>protected:</strong> Accessible within package and subclasses<br>
+• <strong>public:</strong> Accessible from anywhere<br><br>
+
+<strong>Example - Without Data Hiding:</strong><br>
+<pre><code>class Student {
+    public String name;  // Direct access - not recommended
+    public int age;
+    
+    public void display() {
+        System.out.println(name + " is " + age + " years old");
+    }
+}
+
+// Usage - Direct manipulation possible
+Student s = new Student();
+s.name = "John";     // Direct access
+s.age = -5;          // Invalid data allowed
+s.display();</code></pre><br>
+
+<strong>Example - With Data Hiding:</strong><br>
+<pre><code>class Student {
+    private String name;  // Hidden data
+    private int age;
+    
+    // Getter methods
+    public String getName() {
+        return name;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+    
+    // Setter methods with validation
+    public void setName(String name) {
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name;
+        }
+    }
+    
+    public void setAge(int age) {
+        if (age > 0 && age < 120) {
+            this.age = age;
+        }
+    }
+    
+    public void display() {
+        System.out.println(name + " is " + age + " years old");
+    }
+}
+
+// Usage - Controlled access
+Student s = new Student();
+s.setName("John");   // Validated setter
+s.setAge(25);        // Validated setter
+s.setAge(-5);        // Invalid - ignored
+s.display();</code></pre><br>
+
+<strong>Benefits:</strong><br>
+• <strong>Data Integrity:</strong> Prevents invalid data<br>
+• <strong>Security:</strong> Protects sensitive data<br>
+• <strong>Maintenance:</strong> Easy to modify internal implementation<br>
+• <strong>Abstraction:</strong> Hides complexity from users<br>
+• <strong>Validation:</strong> Ensures data consistency<br><br>
+
+<strong>Best Practices:</strong><br>
+• Make instance variables private<br>
+• Provide public getter/setter methods<br>
+• Validate data in setter methods<br>
+• Use appropriate access modifiers<br>
+• Document the purpose of each method
+</div>
+
+</div>
+
+<div class="faq-item" id="multiple-inheritance">
+
+<button class="faq-question">
+<span>9️⃣ Why Java does not support multiple inheritance with classes</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+Java does not support multiple inheritance with classes (where one class inherits from multiple classes) to avoid the "Diamond Problem" and maintain simplicity in the language design. However, Java supports multiple inheritance through interfaces.<br><br>
+
+<strong>The Diamond Problem:</strong><br>
+• Occurs when a class inherits from two classes that have a common method<br>
+• Compiler cannot determine which method to call<br>
+• Leads to ambiguity and complexity<br><br>
+
+<strong>Example of Diamond Problem:</strong><br>
+<pre><code>// This is NOT allowed in Java
+class A {
+    void display() {
+        System.out.println("A");
+    }
+}
+
+class B {
+    void display() {
+        System.out.println("B");
+    }
+}
+
+// This would cause ambiguity
+class C extends A, B {  // Not allowed
+    // Which display() method should C inherit?
+    // From A or from B?
+}</code></pre><br>
+
+<strong>Why Java Avoided It:</strong><br>
+• <strong>Complexity:</strong> Makes language complex<br>
+• <strong>Ambiguity:</strong> Diamond problem causes confusion<br>
+• <strong>Performance:</strong> Slower compilation and execution<br>
+• <strong>Maintainability:</strong> Harder to maintain and debug<br>
+• <strong>Simplicity:</strong> Java focuses on simplicity<br><br>
+
+<strong>Java's Solution - Interfaces:</strong><br>
+• Supports multiple inheritance through interfaces<br>
+• No implementation conflicts<br>
+• Only method signatures, no method bodies (before Java 8)<br>
+• Diamond problem solved through explicit implementation<br><br>
+
+<strong>Multiple Inheritance with Interfaces:</strong><br>
+<pre><code>interface Printable {
+    void print();
+}
+
+interface Showable {
+    void show();
+}
+
+class Document implements Printable, Showable {
+    @Override
+    public void print() {
+        System.out.println("Printing document");
+    }
+    
+    @Override
+    public void show() {
+        System.out.println("Showing document");
+    }
+}</code></pre><br>
+
+<strong>Why Interfaces Work:</strong><br>
+• No method implementations in interfaces (mostly)<br>
+• Class provides all implementations<br>
+• No ambiguity about which method to call<br>
+• Each method is explicitly implemented<br><br>
+
+<strong>Alternative Solutions in Java:</strong><br>
+• <strong>Composition:</strong> Use has-a relationship instead of is-a<br>
+• <strong>Interfaces:</strong> Multiple interface implementation<br>
+• <strong>Inner Classes:</strong> For complex inheritance scenarios<br>
+• <strong>Delegation:</strong> Forward method calls to other objects<br><br>
+
+<strong>Real-world Analogy:</strong><br>
+• <strong>Single Inheritance:</strong> Like a child inheriting traits from one parent<br>
+• <strong>Multiple Inheritance:</strong> Like a child inheriting traits from two parents (can be confusing)<br>
+• <strong>Interfaces:</strong> Like learning skills from multiple teachers (clear and specific)
+</div>
+
+</div>
+
+<div class="faq-item" id="interface-java">
+
+<button class="faq-question">
+<span>🔟 What is interface in Java</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+An interface in Java is a reference type that is similar to a class but contains only abstract methods, default methods, static methods, and constants. It defines a contract that implementing classes must follow, providing complete abstraction.<br><br>
+
+<strong>Key Characteristics:</strong><br>
+• <strong>Abstract Methods:</strong> Methods without implementation<br>
+• <strong>Constants:</strong> Public static final variables<br>
+• <strong>Default Methods:</strong> Methods with default implementation (Java 8+)<br>
+• <strong>Static Methods:</strong> Class-level methods (Java 8+)<br>
+• <strong>Private Methods:</strong> Helper methods (Java 9+)<br>
+• <strong>Multiple Inheritance:</strong> A class can implement multiple interfaces<br><br>
+
+<strong>Basic Syntax:</strong><br>
+<pre><code>interface InterfaceName {
+    // Constants (public static final by default)
+    int MAX_VALUE = 100;
+    
+    // Abstract methods (public abstract by default)
+    void method1();
+    void method2();
+    
+    // Default method (Java 8+)
+    default void defaultMethod() {
+        System.out.println("Default implementation");
+    }
+    
+    // Static method (Java 8+)
+    static void staticMethod() {
+        System.out.println("Static method");
+    }
+}</code></pre><br>
+
+<strong>Implementation:</strong><br>
+<pre><code>class MyClass implements InterfaceName {
+    @Override
+    public void method1() {
+        System.out.println("Implementation of method1");
+    }
+    
+    @Override
+    public void method2() {
+        System.out.println("Implementation of method2");
+    }
+    
+    // Can override default method if needed
+    @Override
+    public void defaultMethod() {
+        System.out.println("Overridden default method");
+    }
+}</code></pre><br>
+
+<strong>Types of Interfaces:</strong><br><br>
+
+<strong>1. Normal Interface:</strong><br>
+• Contains abstract methods and constants<br>
+• Implementing class must provide all implementations<br><br>
+
+<strong>2. Functional Interface (Java 8+):</strong><br>
+• Contains exactly one abstract method<br>
+• Can be used with lambda expressions<br>
+• Marked with @FunctionalInterface annotation<br>
+<pre><code>@FunctionalInterface
+interface Calculator {
+    int calculate(int a, int b);
+}
+
+// Usage with lambda
+Calculator add = (a, b) -> a + b;
+Calculator multiply = (a, b) -> a * b;</code></pre><br>
+
+<strong>3. Marker Interface:</strong><br>
+• Empty interface with no methods<br>
+• Used to mark classes for special treatment<br>
+• Example: Serializable, Cloneable<br><br>
+
+<strong>Interface vs Abstract Class:</strong><br>
+• <strong>Multiple Inheritance:</strong> Interface supports, abstract class doesn't<br>
+• <strong>Variables:</strong> Interface has only constants, abstract class can have instance variables<br>
+• <strong>Constructors:</strong> Interface can't have, abstract class can<br>
+• <strong>Method Types:</strong> Interface has abstract, default, static; abstract class has all types<br><br>
+
+<strong>Benefits:</strong><br>
+• <strong>Abstraction:</strong> Hides implementation details<br>
+• <strong>Multiple Inheritance:</strong> Solves diamond problem<br>
+• <strong>Loose Coupling:</strong> Reduces dependencies<br>
+• <strong>Testability:</strong> Easy to mock for testing<br>
+• <strong>Flexibility:</strong> Allows different implementations<br><br>
+
+<strong>Best Practices:</strong><br>
+• Use descriptive names ending with "able" (Runnable, Serializable)<br>
+• Keep interfaces focused on single responsibility<br>
+• Use default methods for backward compatibility<br>
+• Document abstract methods with JavaDoc<br>
+• Consider functional interfaces for lambda support
+</div>
+
+</div>
+
+<div class="faq-item" id="abstraction-deep">
+
+<button class="faq-question">
+<span>1️⃣1️⃣ What is abstraction in OOP with detailed examples?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+Abstraction is one of the fundamental principles of Object-Oriented Programming (OOP) that focuses on hiding complex implementation details and showing only the essential features of an object. It allows programmers to focus on what an object does rather than how it does it.<br><br>
+
+<strong>Key Concepts of Abstraction:</strong><br>
+• <strong>Data Abstraction:</strong> Hiding data implementation details<br>
+• <strong>Method Abstraction:</strong> Hiding method implementation details<br>
+• <strong>Interface:</strong> Contract that defines what methods should be implemented<br>
+• <strong>Abstract Class:</strong> Partially implemented class that cannot be instantiated<br><br>
+
+<strong>Types of Abstraction:</strong><br><br>
+
+<strong>1. Data Abstraction:</strong><br>
+• Hides internal data representation<br>
+• Provides controlled access through methods<br>
+• Achieved using access modifiers (private, protected)<br><br>
+
+<strong>2. Method Abstraction:</strong><br>
+• Hides method implementation details<br>
+• Shows only method signatures<br>
+• Achieved using abstract methods and interfaces<br><br>
+
+<strong>Detailed Example - Banking System:</strong><br>
+<pre><code>// Abstract class representing a bank account
+abstract class BankAccount {
+    protected String accountNumber;
+    protected String accountHolder;
+    protected double balance;
+    
+    // Constructor
+    public BankAccount(String accountNumber, String accountHolder) {
+        this.accountNumber = accountNumber;
+        this.accountHolder = accountHolder;
+        this.balance = 0.0;
+    }
+    
+    // Abstract methods (must be implemented by subclasses)
+    public abstract void deposit(double amount);
+    public abstract void withdraw(double amount);
+    public abstract double getBalance();
+    public abstract String getAccountType();
+    
+    // Concrete method (fully implemented)
+    public void displayAccountInfo() {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Account Holder: " + accountHolder);
+        System.out.println("Account Type: " + getAccountType());
+        System.out.println("Current Balance: $" + balance);
+    }
+}
+
+// Concrete implementation - Savings Account
+class SavingsAccount extends BankAccount {
+    private double interestRate;
+    private double minimumBalance;
+    
+    public SavingsAccount(String accountNumber, String accountHolder) {
+        super(accountNumber, accountHolder);
+        this.interestRate = 0.03; // 3% interest
+        this.minimumBalance = 500.0;
+    }
+    
+    @Override
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited $" + amount + " to Savings Account");
+        } else {
+            System.out.println("Invalid deposit amount");
+        }
+    }
+    
+    @Override
+    public void withdraw(double amount) {
+        if (amount > 0 && (balance - amount) >= minimumBalance) {
+            balance -= amount;
+            System.out.println("Withdrawn $" + amount + " from Savings Account");
+        } else {
+            System.out.println("Insufficient funds or below minimum balance");
+        }
+    }
+    
+    @Override
+    public double getBalance() {
+        return balance;
+    }
+    
+    @Override
+    public String getAccountType() {
+        return "Savings Account";
+    }
+    
+    // Additional method specific to savings account
+    public void calculateInterest() {
+        double interest = balance * interestRate;
+        balance += interest;
+        System.out.println("Interest added: $" + interest);
+    }
+}
+
+// Concrete implementation - Current Account
+class CurrentAccount extends BankAccount {
+    private double overdraftLimit;
+    
+    public CurrentAccount(String accountNumber, String accountHolder) {
+        super(accountNumber, accountHolder);
+        this.overdraftLimit = 1000.0;
+    }
+    
+    @Override
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited $" + amount + " to Current Account");
+        } else {
+            System.out.println("Invalid deposit amount");
+        }
+    }
+    
+    @Override
+    public void withdraw(double amount) {
+        if (amount > 0 && (balance - amount) >= -overdraftLimit) {
+            balance -= amount;
+            System.out.println("Withdrawn $" + amount + " from Current Account");
+        } else {
+            System.out.println("Withdrawal exceeds overdraft limit");
+        }
+    }
+    
+    @Override
+    public double getBalance() {
+        return balance;
+    }
+    
+    @Override
+    public String getAccountType() {
+        return "Current Account";
+    }
+}</code></pre><br>
+
+<strong>Usage Example:</strong><br>
+<pre><code>// Using abstraction - we don't need to know internal implementation
+BankAccount savings = new SavingsAccount("SA001", "John Doe");
+BankAccount current = new CurrentAccount("CA001", "Jane Smith");
+
+savings.deposit(1000);
+savings.displayAccountInfo();
+
+current.deposit(2000);
+current.withdraw(500);
+current.displayAccountInfo();
+
+// Abstract class cannot be instantiated directly
+// BankAccount generic = new BankAccount(); // Compilation error!</code></pre><br>
+
+<strong>Interface Example - Payment System:</strong><br>
+<pre><code>// Interface for payment methods
+interface PaymentMethod {
+    boolean processPayment(double amount);
+    String getPaymentType();
+    boolean validatePayment();
+}
+
+// Credit card implementation
+class CreditCardPayment implements PaymentMethod {
+    private String cardNumber;
+    private String expiryDate;
+    private String cvv;
+    
+    public CreditCardPayment(String cardNumber, String expiryDate, String cvv) {
+        this.cardNumber = cardNumber;
+        this.expiryDate = expiryDate;
+        this.cvv = cvv;
+    }
+    
+    @Override
+    public boolean processPayment(double amount) {
+        // Complex credit card processing logic hidden
+        System.out.println("Processing credit card payment of $" + amount);
+        return validatePayment() && chargeCard(amount);
+    }
+    
+    @Override
+    public String getPaymentType() {
+        return "Credit Card";
+    }
+    
+    @Override
+    public boolean validatePayment() {
+        // Validation logic hidden from user
+        return isValidCard() && isNotExpired() && hasSufficientFunds();
+    }
+    
+    // Private helper methods (completely hidden)
+    private boolean isValidCard() { /* implementation */ return true; }
+    private boolean isNotExpired() { /* implementation */ return true; }
+    private boolean hasSufficientFunds() { /* implementation */ return true; }
+    private boolean chargeCard(double amount) { /* implementation */ return true; }
+}
+
+// PayPal implementation
+class PayPalPayment implements PaymentMethod {
+    private String email;
+    private String password;
+    
+    public PayPalPayment(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+    
+    @Override
+    public boolean processPayment(double amount) {
+        System.out.println("Processing PayPal payment of $" + amount);
+        return validatePayment() && transferFunds(amount);
+    }
+    
+    @Override
+    public String getPaymentType() {
+        return "PayPal";
+    }
+    
+    @Override
+    public boolean validatePayment() {
+        // PayPal validation logic hidden
+        return authenticateUser() && hasBalance(amount);
+    }
+    
+    private boolean authenticateUser() { /* implementation */ return true; }
+    private boolean hasBalance(double amount) { /* implementation */ return true; }
+    private boolean transferFunds(double amount) { /* implementation */ return true; }
+}</code></pre><br>
+
+<strong>Benefits of Abstraction:</strong><br>
+• <strong>Simplifies Complex Systems:</strong> Hides complexity from users<br>
+• <strong>Improves Security:</strong> Prevents unauthorized access to implementation<br>
+• <strong>Enhances Maintainability:</strong> Changes to implementation don't affect users<br>
+• <strong>Promotes Modularity:</strong> Different parts can be developed independently<br>
+• <strong>Reduces Coupling:</strong> Loose coupling between components<br>
+• <strong>Increases Reusability:</strong> Abstract classes and interfaces can be reused<br><br>
+
+<strong>Real-World Analogy:</strong><br>
+• <strong>Car:</strong> You know how to drive (interface) but don't need to know how the engine works internally<br>
+• <strong>TV Remote:</strong> You know which buttons to press (methods) but don't know the internal circuitry<br>
+• <strong>ATM Machine:</strong> You know how to withdraw money (operations) but don't know the banking system implementation<br><br>
+
+<strong>Best Practices:</strong><br>
+• Use abstract classes when you want to share code among related classes<br>
+• Use interfaces when you want to define contracts for unrelated classes<br>
+• Keep abstract methods focused and well-documented<br>
+• Provide default implementations in interfaces when appropriate<br>
+• Use meaningful names that clearly indicate the abstraction's purpose
+</div>
+
+</div>
+
+<div class="faq-item" id="polymorphism-deep">
+
+<button class="faq-question">
+<span>1️⃣2️⃣ What is polymorphism in OOP with detailed examples?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+Polymorphism is a core concept in Object-Oriented Programming that allows objects of different classes to be treated as objects of a common superclass. The word "polymorphism" comes from Greek, meaning "many forms." It enables a single interface to represent different underlying forms (data types).<br><br>
+
+<strong>Key Concepts:</strong><br>
+• <strong>Many Forms:</strong> Same method name, different implementations<br>
+• <strong>Dynamic Binding:</strong> Method call resolved at runtime<br>
+• <strong>Static Binding:</strong> Method call resolved at compile time<br>
+• <strong>Method Overriding:</strong> Runtime polymorphism<br>
+• <strong>Method Overloading:</strong> Compile-time polymorphism<br><br>
+
+<strong>Types of Polymorphism:</strong><br><br>
+
+<strong>1. Compile-time Polymorphism (Static Binding):</strong><br>
+• Also called static polymorphism or early binding<br>
+• Method overloading is the most common example<br>
+• Resolved during compilation<br>
+• Faster execution but less flexible<br><br>
+
+<strong>2. Runtime Polymorphism (Dynamic Binding):</strong><br>
+• Also called dynamic polymorphism or late binding<br>
+• Method overriding is the most common example<br>
+• Resolved during execution<br>
+• More flexible but slightly slower<br><br>
+
+<strong>Detailed Example - Animal Behavior System:</strong><br>
+<pre><code>// Abstract base class
+abstract class Animal {
+    protected String name;
+    protected int age;
+    
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    // Abstract method - must be implemented by subclasses
+    public abstract void makeSound();
+    
+    // Concrete method
+    public void eat() {
+        System.out.println(name + " is eating");
+    }
+    
+    // Concrete method
+    public void sleep() {
+        System.out.println(name + " is sleeping");
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+}
+
+// Dog class - overrides makeSound
+class Dog extends Animal {
+    private String breed;
+    
+    public Dog(String name, int age, String breed) {
+        super(name, age);
+        this.breed = breed;
+    }
+    
+    @Override
+    public void makeSound() {
+        System.out.println(name + " (Dog) says: Woof! Woof!");
+    }
+    
+    // Dog-specific method
+    public void fetch() {
+        System.out.println(name + " is fetching the ball");
+    }
+    
+    public String getBreed() {
+        return breed;
+    }
+}
+
+// Cat class - overrides makeSound
+class Cat extends Animal {
+    private String color;
+    
+    public Cat(String name, int age, String color) {
+        super(name, age);
+        this.color = color;
+    }
+    
+    @Override
+    public void makeSound() {
+        System.out.println(name + " (Cat) says: Meow! Meow!");
+    }
+    
+    // Cat-specific method
+    public void climb() {
+        System.out.println(name + " is climbing the tree");
+    }
+    
+    public String getColor() {
+        return color;
+    }
+}
+
+// Bird class - overrides makeSound
+class Bird extends Animal {
+    private boolean canFly;
+    
+    public Bird(String name, int age, boolean canFly) {
+        super(name, age);
+        this.canFly = canFly;
+    }
+    
+    @Override
+    public void makeSound() {
+        System.out.println(name + " (Bird) says: Chirp! Chirp!");
+    }
+    
+    // Bird-specific method
+    public void fly() {
+        if (canFly) {
+            System.out.println(name + " is flying");
+        } else {
+            System.out.println(name + " cannot fly");
+        }
+    }
+}</code></pre><br>
+
+<strong>Runtime Polymorphism Example:</strong><br>
+<pre><code>public class AnimalDemo {
+    public static void main(String[] args) {
+        // Array of Animal references - polymorphism in action!
+        Animal[] animals = new Animal[4];
+        
+        animals[0] = new Dog("Buddy", 3, "Golden Retriever");
+        animals[1] = new Cat("Whiskers", 2, "Black");
+        animals[2] = new Bird("Tweety", 1, true);
+        animals[3] = new Dog("Max", 5, "German Shepherd");
+        
+        // Polymorphic behavior - same method call, different implementations
+        System.out.println("=== Animal Sounds (Polymorphism) ===");
+        for (Animal animal : animals) {
+            animal.makeSound();  // Which makeSound() is called? Determined at runtime!
+        }
+        
+        System.out.println("\n=== Common Behaviors ===");
+        for (Animal animal : animals) {
+            animal.eat();    // Same implementation for all
+            animal.sleep();  // Same implementation for all
+        }
+        
+        System.out.println("\n=== Specific Behaviors ===");
+        // Downcasting to access specific methods
+        for (Animal animal : animals) {
+            if (animal instanceof Dog) {
+                ((Dog) animal).fetch();
+            } else if (animal instanceof Cat) {
+                ((Cat) animal).climb();
+            } else if (animal instanceof Bird) {
+                ((Bird) animal).fly();
+            }
+        }
+    }
+}</code></pre><br>
+
+<strong>Compile-time Polymorphism Example:</strong><br>
+<pre><code>class Calculator {
+    // Method overloading - compile-time polymorphism
+    
+    // Method 1: Add two integers
+    public int add(int a, int b) {
+        System.out.println("Adding two integers");
+        return a + b;
+    }
+    
+    // Method 2: Add three integers
+    public int add(int a, int b, int c) {
+        System.out.println("Adding three integers");
+        return a + b + c;
+    }
+    
+    // Method 3: Add two doubles
+    public double add(double a, double b) {
+        System.out.println("Adding two doubles");
+        return a + b;
+    }
+    
+    // Method 4: Add array of integers
+    public int add(int[] numbers) {
+        System.out.println("Adding array of integers");
+        int sum = 0;
+        for (int num : numbers) {
+            sum += num;
+        }
+        return sum;
+    }
+}
+
+public class CalculatorDemo {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        
+        // Compiler determines which method to call based on parameters
+        System.out.println("Result 1: " + calc.add(5, 10));           // Calls add(int, int)
+        System.out.println("Result 2: " + calc.add(5, 10, 15));       // Calls add(int, int, int)
+        System.out.println("Result 3: " + calc.add(5.5, 10.2));       // Calls add(double, double)
+        System.out.println("Result 4: " + calc.add(new int[]{1,2,3,4,5})); // Calls add(int[])
+    }
+}</code></pre><br>
+
+<strong>Advanced Polymorphism Example - Shape Drawing:</strong><br>
+<pre><code>// Interface demonstrating polymorphism
+interface Drawable {
+    void draw();
+    double getArea();
+    String getDescription();
+}
+
+// Abstract base class
+abstract class Shape implements Drawable {
+    protected String color;
+    
+    public Shape(String color) {
+        this.color = color;
+    }
+    
+    // Common method for all shapes
+    public void displayColor() {
+        System.out.println("Color: " + color);
+    }
+    
+    // Abstract methods to be implemented by subclasses
+    @Override
+    public abstract void draw();
+    @Override
+    public abstract double getArea();
+    @Override
+    public abstract String getDescription();
+}
+
+// Circle implementation
+class Circle extends Shape {
+    private double radius;
+    
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+    
+    @Override
+    public void draw() {
+        System.out.println("Drawing a " + color + " circle with radius " + radius);
+    }
+    
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+    
+    @Override
+    public String getDescription() {
+        return "Circle with radius " + radius;
+    }
+}
+
+// Rectangle implementation
+class Rectangle extends Shape {
+    private double width;
+    private double height;
+    
+    public Rectangle(String color, double width, double height) {
+        super(color);
+        this.width = width;
+        this.height = height;
+    }
+    
+    @Override
+    public void draw() {
+        System.out.println("Drawing a " + color + " rectangle " + width + "x" + height);
+    }
+    
+    @Override
+    public double getArea() {
+        return width * height;
+    }
+    
+    @Override
+    public String getDescription() {
+        return "Rectangle " + width + "x" + height;
+    }
+}
+
+// Triangle implementation
+class Triangle extends Shape {
+    private double base;
+    private double height;
+    
+    public Triangle(String color, double base, double height) {
+        super(color);
+        this.base = base;
+        this.height = height;
+    }
+    
+    @Override
+    public void draw() {
+        System.out.println("Drawing a " + color + " triangle with base " + base + " and height " + height);
+    }
+    
+    @Override
+    public double getArea() {
+        return 0.5 * base * height;
+    }
+    
+    @Override
+    public String getDescription() {
+        return "Triangle with base " + base + " and height " + height;
+    }
+}
+
+public class ShapeDemo {
+    public static void main(String[] args) {
+        // Array of Drawable references - maximum polymorphism!
+        Drawable[] shapes = new Drawable[4];
+        
+        shapes[0] = new Circle("Red", 5.0);
+        shapes[1] = new Rectangle("Blue", 10.0, 8.0);
+        shapes[2] = new Triangle("Green", 6.0, 4.0);
+        shapes[3] = new Circle("Yellow", 3.0);
+        
+        System.out.println("=== Drawing Shapes (Polymorphism) ===");
+        for (Drawable shape : shapes) {
+            shape.draw();
+            System.out.println("Area: " + shape.getArea());
+            System.out.println("Description: " + shape.getDescription());
+            System.out.println();
+        }
+        
+        // Method that accepts any Drawable - polymorphic parameter
+        printShapeInfo(shapes[0]);  // Circle
+        printShapeInfo(shapes[1]);  // Rectangle
+    }
+    
+    // Polymorphic method parameter
+    public static void printShapeInfo(Drawable shape) {
+        System.out.println("Shape Info:");
+        shape.draw();
+        System.out.println("Area: " + shape.getArea());
+    }
+}</code></pre><br>
+
+<strong>Benefits of Polymorphism:</strong><br>
+• <strong>Code Reusability:</strong> Write code that works with multiple types<br>
+• <strong>Extensibility:</strong> Add new classes without changing existing code<br>
+• <strong>Maintainability:</strong> Easier to modify and extend systems<br>
+• <strong>Loose Coupling:</strong> Reduces dependencies between classes<br>
+• <strong>Interface Consistency:</strong> Same interface for different implementations<br><br>
+
+<strong>Real-World Examples:</strong><br>
+• <strong>Payment Methods:</strong> Credit card, PayPal, bank transfer all implement "pay()" method<br>
+• <strong>Vehicles:</strong> Car, truck, motorcycle all implement "drive()" method<br>
+• <strong>Printers:</strong> Laser, inkjet, dot matrix all implement "print()" method<br>
+• <strong>Database Drivers:</strong> MySQL, PostgreSQL, Oracle all implement same database interface<br><br>
+
+<strong>Best Practices:</strong><br>
+• Use inheritance hierarchies for related classes<br>
+• Prefer interfaces for unrelated classes that share behavior<br>
+• Use @Override annotation to ensure proper overriding<br>
+• Keep method signatures consistent in inheritance hierarchies<br>
+• Use instanceof and downcasting judiciously<br>
+• Document polymorphic behavior clearly
+</div>
+
+</div>
+
+<div class="faq-item" id="inheritance-deep">
+
+<button class="faq-question">
+<span>1️⃣3️⃣ What is inheritance in OOP with detailed examples?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+Inheritance is a fundamental concept in Object-Oriented Programming where a new class (child or subclass) is created from an existing class (parent or superclass). The child class inherits all the properties and behaviors of the parent class and can add new features or modify existing ones. It establishes an "IS-A" relationship between classes.<br><br>
+
+<strong>Key Concepts:</strong><br>
+• <strong>Parent/Superclass:</strong> The class being inherited from<br>
+• <strong>Child/Subclass:</strong> The class that inherits<br>
+• <strong>IS-A Relationship:</strong> A Dog IS-A Animal, A Car IS-A Vehicle<br>
+• <strong>Code Reusability:</strong> Avoid duplicating code<br>
+• <strong>Method Overriding:</strong> Changing parent method behavior<br>
+• <strong>Access Modifiers:</strong> Control inheritance visibility<br><br>
+
+<strong>Types of Inheritance:</strong><br><br>
+
+<strong>1. Single Inheritance:</strong><br>
+• One child class inherits from one parent class<br>
+• Most common and straightforward<br>
+• Example: Dog extends Animal<br><br>
+
+<strong>2. Multilevel Inheritance:</strong><br>
+• Child class becomes parent for another class<br>
+• Creates a chain of inheritance<br>
+• Example: Puppy extends Dog extends Animal<br><br>
+
+<strong>3. Hierarchical Inheritance:</strong><br>
+• Multiple child classes inherit from one parent class<br>
+• Creates a tree-like structure<br>
+• Example: Dog, Cat, Cow all extend Animal<br><br>
+
+<strong>4. Multiple Inheritance (Not supported in Java):</strong><br>
+• One child class inherits from multiple parent classes<br>
+• Supported through interfaces in Java<br>
+• Example: FlyingCar extends Car and Airplane (not allowed)<br><br>
+
+<strong>Detailed Example - Vehicle Management System:</strong><br>
+<pre><code>// Base class - Vehicle
+class Vehicle {
+    protected String brand;
+    protected String model;
+    protected int year;
+    protected String color;
+    protected double price;
+    
+    // Constructor
+    public Vehicle(String brand, String model, int year, String color, double price) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.color = color;
+        this.price = price;
+    }
+    
+    // Common methods for all vehicles
+    public void start() {
+        System.out.println(brand + " " + model + " is starting...");
+    }
+    
+    public void stop() {
+        System.out.println(brand + " " + model + " is stopping...");
+    }
+    
+    public void displayInfo() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+        System.out.println("Color: " + color);
+        System.out.println("Price: $" + price);
+    }
+    
+    // Getters
+    public String getBrand() { return brand; }
+    public String getModel() { return model; }
+    public int getYear() { return year; }
+    public double getPrice() { return price; }
+}
+
+// Child class - Car (inherits from Vehicle)
+class Car extends Vehicle {
+    private int numberOfDoors;
+    private String fuelType;
+    private boolean hasAirConditioning;
+    
+    // Constructor - calls parent constructor
+    public Car(String brand, String model, int year, String color, double price,
+               int numberOfDoors, String fuelType, boolean hasAirConditioning) {
+        super(brand, model, year, color, price);  // Call parent constructor
+        this.numberOfDoors = numberOfDoors;
+        this.fuelType = fuelType;
+        this.hasAirConditioning = hasAirConditioning;
+    }
+    
+    // Override parent method
+    @Override
+    public void start() {
+        System.out.println("Inserting key and starting " + brand + " " + model + " car...");
+        if (hasAirConditioning) {
+            System.out.println("Air conditioning is on");
+        }
+    }
+    
+    // Car-specific methods
+    public void drive() {
+        System.out.println("Driving the " + color + " " + brand + " " + model + " on the road");
+    }
+    
+    public void honk() {
+        System.out.println("Beep! Beep! " + brand + " " + model + " is honking");
+    }
+    
+    // Override displayInfo to include car-specific details
+    @Override
+    public void displayInfo() {
+        super.displayInfo();  // Call parent method first
+        System.out.println("Number of Doors: " + numberOfDoors);
+        System.out.println("Fuel Type: " + fuelType);
+        System.out.println("Air Conditioning: " + (hasAirConditioning ? "Yes" : "No"));
+    }
+}
+
+// Child class - Motorcycle (inherits from Vehicle)
+class Motorcycle extends Vehicle {
+    private int engineCapacity; // in CC
+    private String type; // sports, cruiser, touring
+    private boolean hasSideCar;
+    
+    public Motorcycle(String brand, String model, int year, String color, double price,
+                     int engineCapacity, String type, boolean hasSideCar) {
+        super(brand, model, year, color, price);
+        this.engineCapacity = engineCapacity;
+        this.type = type;
+        this.hasSideCar = hasSideCar;
+    }
+    
+    // Override parent method
+    @Override
+    public void start() {
+        System.out.println("Kicking to start " + brand + " " + model + " motorcycle...");
+        System.out.println("Vroom! Engine capacity: " + engineCapacity + "cc");
+    }
+    
+    // Motorcycle-specific methods
+    public void wheelie() {
+        if (type.equals("sports")) {
+            System.out.println(brand + " " + model + " is doing a wheelie!");
+        } else {
+            System.out.println("This " + type + " motorcycle doesn't do wheelies");
+        }
+    }
+    
+    public void race() {
+        System.out.println("Racing with " + brand + " " + model + " at high speed!");
+    }
+    
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Engine Capacity: " + engineCapacity + "cc");
+        System.out.println("Type: " + type);
+        System.out.println("Side Car: " + (hasSideCar ? "Yes" : "No"));
+    }
+}
+
+// Child class - ElectricCar (inherits from Car)
+class ElectricCar extends Car {
+    private int batteryCapacity; // in kWh
+    private int range; // in miles
+    private int chargingTime; // in hours
+    
+    public ElectricCar(String brand, String model, int year, String color, double price,
+                      int numberOfDoors, int batteryCapacity, int range, int chargingTime) {
+        super(brand, model, year, color, price, numberOfDoors, "Electric", true);
+        this.batteryCapacity = batteryCapacity;
+        this.range = range;
+        this.chargingTime = chargingTime;
+    }
+    
+    // Override start method
+    @Override
+    public void start() {
+        System.out.println("Pressing start button on " + brand + " " + model + " electric car...");
+        System.out.println("Battery level: " + getBatteryLevel() + "%");
+        System.out.println("Range remaining: " + range + " miles");
+    }
+    
+    // Electric car specific methods
+    public void charge() {
+        System.out.println("Charging " + brand + " " + model + " for " + chargingTime + " hours");
+        System.out.println("Battery capacity: " + batteryCapacity + " kWh");
+    }
+    
+    public void regenerativeBraking() {
+        System.out.println("Regenerative braking activated - gaining energy!");
+    }
+    
+    private int getBatteryLevel() {
+        // Simulate battery level
+        return 85;
+    }
+    
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Battery Capacity: " + batteryCapacity + " kWh");
+        System.out.println("Range: " + range + " miles");
+        System.out.println("Charging Time: " + chargingTime + " hours");
+    }
+}</code></pre><br>
+
+<strong>Usage Example:</strong><br>
+<pre><code>public class VehicleDemo {
+    public static void main(String[] args) {
+        // Create different types of vehicles
+        Vehicle genericVehicle = new Vehicle("Generic", "Basic", 2020, "White", 15000);
+        Car sedan = new Car("Toyota", "Camry", 2022, "Blue", 25000, 4, "Gasoline", true);
+        Motorcycle sportBike = new Motorcycle("Yamaha", "R1", 2023, "Red", 18000, 1000, "sports", false);
+        ElectricCar tesla = new ElectricCar("Tesla", "Model 3", 2023, "Black", 45000, 4, 75, 358, 8);
+        
+        // Array of vehicles demonstrating polymorphism
+        Vehicle[] vehicles = {genericVehicle, sedan, sportBike, tesla};
+        
+        System.out.println("=== Vehicle Information ===");
+        for (Vehicle vehicle : vehicles) {
+            vehicle.displayInfo();
+            System.out.println();
+        }
+        
+        System.out.println("=== Vehicle Actions ===");
+        for (Vehicle vehicle : vehicles) {
+            vehicle.start();
+            vehicle.stop();
+            
+            // Specific actions based on type
+            if (vehicle instanceof Car) {
+                if (vehicle instanceof ElectricCar) {
+                    ((ElectricCar) vehicle).charge();
+                    ((ElectricCar) vehicle).regenerativeBraking();
+                } else {
+                    ((Car) vehicle).drive();
+                    ((Car) vehicle).honk();
+                }
+            } else if (vehicle instanceof Motorcycle) {
+                ((Motorcycle) vehicle).wheelie();
+                ((Motorcycle) vehicle).race();
+            }
+            System.out.println();
+        }
+    }
+}</code></pre><br>
+
+<strong>Advanced Inheritance Example - Employee Management:</strong><br>
+<pre><code>// Abstract base class
+abstract class Employee {
+    protected String name;
+    protected int id;
+    protected double baseSalary;
+    protected String department;
+    
+    public Employee(String name, int id, double baseSalary, String department) {
+        this.name = name;
+        this.id = id;
+        this.baseSalary = baseSalary;
+        this.department = department;
+    }
+    
+    // Abstract method
+    public abstract double calculateSalary();
+    
+    // Concrete methods
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("ID: " + id);
+        System.out.println("Department: " + department);
+        System.out.println("Base Salary: $" + baseSalary);
+        System.out.println("Total Salary: $" + calculateSalary());
+    }
+    
+    public void work() {
+        System.out.println(name + " is working in " + department + " department");
+    }
+}
+
+// Manager class
+class Manager extends Employee {
+    private double bonus;
+    private int teamSize;
+    
+    public Manager(String name, int id, double baseSalary, String department, 
+                  double bonus, int teamSize) {
+        super(name, id, baseSalary, department);
+        this.bonus = bonus;
+        this.teamSize = teamSize;
+    }
+    
+    @Override
+    public double calculateSalary() {
+        return baseSalary + bonus;
+    }
+    
+    @Override
+    public void work() {
+        super.work();
+        System.out.println(name + " is managing a team of " + teamSize + " people");
+    }
+    
+    public void conductMeeting() {
+        System.out.println(name + " is conducting a team meeting");
+    }
+}
+
+// Developer class
+class Developer extends Employee {
+    private String programmingLanguage;
+    private int yearsOfExperience;
+    private double projectBonus;
+    
+    public Developer(String name, int id, double baseSalary, String department,
+                    String programmingLanguage, int yearsOfExperience, double projectBonus) {
+        super(name, id, baseSalary, department);
+        this.programmingLanguage = programmingLanguage;
+        this.yearsOfExperience = yearsOfExperience;
+        this.projectBonus = projectBonus;
+    }
+    
+    @Override
+    public double calculateSalary() {
+        return baseSalary + projectBonus + (yearsOfExperience * 1000);
+    }
+    
+    @Override
+    public void work() {
+        super.work();
+        System.out.println(name + " is coding in " + programmingLanguage);
+    }
+    
+    public void writeCode() {
+        System.out.println(name + " is writing " + programmingLanguage + " code");
+    }
+    
+    public void debug() {
+        System.out.println(name + " is debugging the application");
+    }
+}
+
+// Intern class
+class Intern extends Employee {
+    private String university;
+    private int durationMonths;
+    private double stipend;
+    
+    public Intern(String name, int id, double baseSalary, String department,
+                 String university, int durationMonths, double stipend) {
+        super(name, id, baseSalary, department);
+        this.university = university;
+        this.durationMonths = durationMonths;
+        this.stipend = stipend;
+    }
+    
+    @Override
+    public double calculateSalary() {
+        return stipend; // Interns get stipend instead of salary
+    }
+    
+    @Override
+    public void work() {
+        super.work();
+        System.out.println(name + " is learning and assisting the team");
+    }
+    
+    public void learn() {
+        System.out.println(name + " from " + university + " is learning new technologies");
+    }
+}</code></pre><br>
+
+<strong>Benefits of Inheritance:</strong><br>
+• <strong>Code Reusability:</strong> Avoid rewriting common code<br>
+• <strong>Extensibility:</strong> Easy to add new features<br>
+• <strong>Maintainability:</strong> Changes in parent class affect all children<br>
+• <strong>Polymorphism:</strong> Enables runtime polymorphism<br>
+• <strong>Hierarchy:</strong> Natural representation of real-world relationships<br>
+• <strong>Modularity:</strong> Organize code in logical groups<br><br>
+
+<strong>Access Modifiers in Inheritance:</strong><br>
+• <strong>public:</strong> Accessible everywhere<br>
+• <strong>protected:</strong> Accessible in same package and subclasses<br>
+• <strong>default:</strong> Accessible in same package only<br>
+• <strong>private:</strong> Accessible only in same class<br><br>
+
+<strong>Key Keywords:</strong><br>
+• <strong>extends:</strong> Used to inherit from a class<br>
+• <strong>super:</strong> Refers to parent class constructor/methods<br>
+• <strong>final:</strong> Prevents inheritance or method overriding<br>
+• <strong>abstract:</strong> Cannot be instantiated, must be extended<br><br>
+
+<strong>Real-World Examples:</strong><br>
+• <strong>Animal Hierarchy:</strong> Animal → Mammal → Dog<br>
+• <strong>Vehicle Types:</strong> Vehicle → Car → SportsCar<br>
+• <strong>Employee Types:</strong> Employee → Manager, Developer, Intern<br>
+• <strong>Shape Hierarchy:</strong> Shape → Circle, Rectangle, Triangle<br><br>
+
+<strong>Best Practices:</strong><br>
+• Use inheritance only when IS-A relationship exists<br>
+• Prefer composition over inheritance when HAS-A relationship exists<br>
+• Keep inheritance hierarchies shallow (not too deep)<br>
+• Use abstract classes for partial implementation<br>
+• Use interfaces for multiple inheritance<br>
+• Override methods appropriately with @Override annotation<br>
+• Document inheritance relationships clearly
+</div>
+
+</div>
+
+<div class="faq-item" id="encapsulation-deep">
+
+<button class="faq-question">
+<span>1️⃣4️⃣ What is encapsulation in OOP with detailed examples?</span>
+<i class="fas fa-plus"></i>
+</button>
+
+<div class="faq-answer">
+Encapsulation is a fundamental principle of Object-Oriented Programming that involves bundling data (attributes) and methods (functions) that operate on that data into a single unit called a class. It restricts direct access to some of an object's components and provides controlled access through public methods. The main goal is to protect the internal state of an object from unauthorized access and modification.<br><br>
+
+<strong>Key Concepts:</strong><br>
+• <strong>Data Hiding:</strong> Internal data is hidden from external access<br>
+• <strong>Access Control:</strong> Controlled access through getter/setter methods<br>
+• <strong>Information Hiding:</strong> Hide implementation details<br>
+• <strong>Modularity:</strong> Self-contained units with clear interfaces<br>
+• <strong>Security:</strong> Prevent unauthorized data manipulation<br><br>
+
+<strong>Access Modifiers in Java:</strong><br>
+• <strong>private:</strong> Accessible only within the same class<br>
+• <strong>default (no modifier):</strong> Accessible within the same package<br>
+• <strong>protected:</strong> Accessible within package and subclasses<br>
+• <strong>public:</strong> Accessible from anywhere<br><br>
+
+<strong>Detailed Example - Student Management System:</strong><br>
+<pre><code>class Student {
+    // Private instance variables (encapsulated data)
+    private String studentId;
+    private String name;
+    private int age;
+    private String grade;
+    private double gpa;
+    private List&lt;String&gt; enrolledCourses;
+    
+    // Constructor
+    public Student(String studentId, String name, int age) {
+        this.studentId = studentId;
+        this.name = name;
+        this.age = age;
+        this.grade = "Not Assigned";
+        this.gpa = 0.0;
+        this.enrolledCourses = new ArrayList&lt;&gt;();
+    }
+    
+    // Public getter methods (controlled read access)
+    public String getStudentId() {
+        return studentId;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public String getGrade() {
+        return grade;
+    }
+    
+    public double getGpa() {
+        return gpa;
+    }
+    
+    public List&lt;String&gt; getEnrolledCourses() {
+        // Return a copy to prevent external modification
+        return new ArrayList&lt;&gt;(enrolledCourses);
+    }
+    
+    // Public setter methods with validation (controlled write access)
+    public void setName(String name) {
+        if (name != null && !name.trim().isEmpty() && name.length() >= 2) {
+            this.name = name.trim();
+        } else {
+            throw new IllegalArgumentException("Name must be at least 2 characters long");
+        }
+    }
+    
+    public void setAge(int age) {
+        if (age >= 5 && age <= 100) {
+            this.age = age;
+        } else {
+            throw new IllegalArgumentException("Age must be between 5 and 100");
+        }
+    }
+    
+    public void setGrade(String grade) {
+        if (grade != null && (grade.equals("A") || grade.equals("B") || grade.equals("C") || 
+            grade.equals("D") || grade.equals("F"))) {
+            this.grade = grade;
+        } else {
+            throw new IllegalArgumentException("Grade must be A, B, C, D, or F");
+        }
+    }
+    
+    // Public methods for operations (business logic)
+    public void enrollCourse(String courseName) {
+        if (courseName != null && !courseName.trim().isEmpty()) {
+            if (!enrolledCourses.contains(courseName)) {
+                enrolledCourses.add(courseName);
+                System.out.println(name + " enrolled in " + courseName);
+            } else {
+                System.out.println(name + " is already enrolled in " + courseName);
+            }
+        }
+    }
+    
+    public void dropCourse(String courseName) {
+        if (enrolledCourses.remove(courseName)) {
+            System.out.println(name + " dropped " + courseName);
+        } else {
+            System.out.println(name + " is not enrolled in " + courseName);
+        }
+    }
+    
+    public void updateGPA(double newGPA) {
+        if (newGPA >= 0.0 && newGPA <= 4.0) {
+            this.gpa = newGPA;
+            // Automatically update grade based on GPA
+            updateGradeFromGPA();
+        } else {
+            throw new IllegalArgumentException("GPA must be between 0.0 and 4.0");
+        }
+    }
+    
+    // Private helper method (completely hidden from outside)
+    private void updateGradeFromGPA() {
+        if (gpa >= 3.7) grade = "A";
+        else if (gpa >= 3.0) grade = "B";
+        else if (gpa >= 2.0) grade = "C";
+        else if (gpa >= 1.0) grade = "D";
+        else grade = "F";
+    }
+    
+    // Public method to display complete information
+    public void displayStudentInfo() {
+        System.out.println("=== Student Information ===");
+        System.out.println("ID: " + studentId);
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Grade: " + grade);
+        System.out.println("GPA: " + gpa);
+        System.out.println("Enrolled Courses: " + enrolledCourses);
+        System.out.println("===========================");
+    }
+}</code></pre><br>
+
+<strong>Usage Example:</strong><br>
+<pre><code>public class StudentDemo {
+    public static void main(String[] args) {
+        // Create a student object
+        Student student = new Student("STU001", "Alice Johnson", 20);
+        
+        // Use public methods to interact with the object
+        student.displayStudentInfo();
+        
+        // Update information using encapsulated methods
+        student.setName("Alice Smith");
+        student.setAge(21);
+        student.updateGPA(3.8);
+        
+        // Enroll in courses
+        student.enrollCourse("Computer Science");
+        student.enrollCourse("Mathematics");
+        student.enrollCourse("Physics");
+        
+        // Try to drop a course
+        student.dropCourse("Mathematics");
+        
+        // Display updated information
+        student.displayStudentInfo();
+        
+        // Demonstrate data protection - cannot access private fields directly
+        // student.age = 150; // Compilation error - age is private
+        // student.gpa = 5.0; // Compilation error - gpa is private
+        
+        // Must use public methods with validation
+        try {
+            student.setAge(150); // Will throw exception
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}</code></pre><br>
+
+<strong>Advanced Example - Bank Account with Security:</strong><br>
+<pre><code>class SecureBankAccount {
+    // Encapsulated sensitive data
+    private String accountNumber;
+    private String accountHolder;
+    private double balance;
+    private String pin; // Encrypted
+    private boolean isLocked;
+    private List&lt;String&gt; transactionHistory;
+    private int failedAttempts;
+    
+    // Constants for security
+    private static final int MAX_FAILED_ATTEMPTS = 3;
+    private static final double MINIMUM_BALANCE = 100.0;
+    
+    public SecureBankAccount(String accountNumber, String accountHolder, String pin) {
+        this.accountNumber = accountNumber;
+        this.accountHolder = accountHolder;
+        this.balance = 0.0;
+        this.pin = encryptPin(pin); // Encrypt PIN for security
+        this.isLocked = false;
+        this.transactionHistory = new ArrayList&lt;&gt;();
+        this.failedAttempts = 0;
+    }
+    
+    // Public interface methods
+    public boolean deposit(double amount, String enteredPin) {
+        if (!authenticate(enteredPin)) {
+            return false;
+        }
+        
+        if (amount > 0) {
+            balance += amount;
+            recordTransaction("Deposit: $" + amount);
+            resetFailedAttempts();
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean withdraw(double amount, String enteredPin) {
+        if (!authenticate(enteredPin)) {
+            return false;
+        }
+        
+        if (amount > 0 && (balance - amount) >= MINIMUM_BALANCE) {
+            balance -= amount;
+            recordTransaction("Withdrawal: $" + amount);
+            resetFailedAttempts();
+            return true;
+        }
+        return false;
+    }
+    
+    public double getBalance(String enteredPin) {
+        if (authenticate(enteredPin)) {
+            resetFailedAttempts();
+            return balance;
+        }
+        return -1; // Error indicator
+    }
+    
+    public boolean transfer(double amount, String recipient, String enteredPin) {
+        if (!authenticate(enteredPin)) {
+            return false;
+        }
+        
+        if (amount > 0 && (balance - amount) >= MINIMUM_BALANCE) {
+            balance -= amount;
+            recordTransaction("Transfer to " + recipient + ": $" + amount);
+            resetFailedAttempts();
+            return true;
+        }
+        return false;
+    }
+    
+    public List&lt;String&gt; getTransactionHistory(String enteredPin) {
+        if (authenticate(enteredPin)) {
+            resetFailedAttempts();
+            return new ArrayList&lt;&gt;(transactionHistory); // Return copy
+        }
+        return new ArrayList&lt;&gt;(); // Empty list on failure
+    }
+    
+    // Private security methods (completely hidden)
+    private boolean authenticate(String enteredPin) {
+        if (isLocked) {
+            System.out.println("Account is locked due to too many failed attempts");
+            return false;
+        }
+        
+        if (enteredPin.equals(pin)) {
+            resetFailedAttempts();
+            return true;
+        } else {
+            failedAttempts++;
+            if (failedAttempts >= MAX_FAILED_ATTEMPTS) {
+                lockAccount();
+            }
+            System.out.println("Invalid PIN. Attempts remaining: " + (MAX_FAILED_ATTEMPTS - failedAttempts));
+            return false;
+        }
+    }
+    
+    private void lockAccount() {
+        isLocked = true;
+        System.out.println("Account locked for security reasons");
+    }
+    
+    private void resetFailedAttempts() {
+        failedAttempts = 0;
+        isLocked = false;
+    }
+    
+    private void recordTransaction(String transaction) {
+        String timestamp = java.time.LocalDateTime.now().toString();
+        transactionHistory.add(timestamp + " - " + transaction);
+    }
+    
+    private String encryptPin(String pin) {
+        // Simple encryption for demonstration (use proper encryption in real apps)
+        return "ENC_" + pin.hashCode();
+    }
+    
+    // Public method to change PIN
+    public boolean changePin(String oldPin, String newPin) {
+        if (authenticate(oldPin)) {
+            if (newPin.length() == 4 && newPin.matches("\\d{4}")) {
+                pin = encryptPin(newPin);
+                recordTransaction("PIN changed");
+                resetFailedAttempts();
+                return true;
+            }
+        }
+        return false;
+    }
+}</code></pre><br>
+
+<strong>Benefits of Encapsulation:</strong><br>
+• <strong>Data Security:</strong> Prevents unauthorized access to sensitive data<br>
+• <strong>Data Integrity:</strong> Validation ensures data consistency<br>
+• <strong>Flexibility:</strong> Internal implementation can change without affecting users<br>
+• <strong>Maintainability:</strong> Easier to modify and debug code<br>
+• <strong>Modularity:</strong> Self-contained units with clear boundaries<br>
+• <strong>Testing:</strong> Easier to test individual components<br><br>
+
+<strong>Common Encapsulation Patterns:</strong><br><br>
+
+<strong>1. JavaBeans Pattern:</strong><br>
+<pre><code>class Person {
+    private String name;
+    private int age;
+    
+    // Getters and setters
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
+}</code></pre><br>
+
+<strong>2. Immutable Objects:</strong><br>
+<pre><code>class ImmutablePerson {
+    private final String name;
+    private final int age;
+    
+    public ImmutablePerson(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    // Only getters, no setters
+    public String getName() { return name; }
+    public int getAge() { return age; }
+}</code></pre><br>
+
+<strong>3. Builder Pattern for Complex Objects:</strong><br>
+<pre><code>class Computer {
+    private String cpu;
+    private int ram;
+    private int storage;
+    private String gpu;
+    
+    private Computer(Builder builder) {
+        this.cpu = builder.cpu;
+        this.ram = builder.ram;
+        this.storage = builder.storage;
+        this.gpu = builder.gpu;
+    }
+    
+    // Getters only
+    public String getCpu() { return cpu; }
+    // ... other getters
+    
+    public static class Builder {
+        private String cpu;
+        private int ram;
+        private int storage;
+        private String gpu;
+        
+        public Builder cpu(String cpu) { this.cpu = cpu; return this; }
+        public Builder ram(int ram) { this.ram = ram; return this; }
+        public Builder storage(int storage) { this.storage = storage; return this; }
+        public Builder gpu(String gpu) { this.gpu = gpu; return this; }
+        
+        public Computer build() { return new Computer(this); }
+    }
+}</code></pre><br>
+
+<strong>Real-World Examples:</strong><br>
+• <strong>ATM Machine:</strong> Users can withdraw money but can't access internal cash counting<br>
+• <strong>Car:</strong> Driver can steer and accelerate but can't access engine internals<br>
+• <strong>Television:</strong> User can change channels but can't access circuit boards<br>
+• <strong>Bank Account:</strong> Customer can deposit/withdraw but can't manipulate balance directly<br><br>
+
+<strong>Best Practices:</strong><br>
+• Make all instance variables private<br>
+• Provide public getter/setter methods as needed<br>
+• Validate data in setter methods<br>
+• Use immutable objects when possible<br>
+• Return copies of mutable objects from getters<br>
+• Keep methods focused on single responsibilities<br>
+• Document the public interface clearly<br>
+• Use encapsulation to hide implementation details
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-content container">
+
+<div class="footer-grid">
+
+<div class="footer-section">
+
+<h3>JavaMastery</h3>
+
+<p>Master Java programming with comprehensive tutorials, hands-on practice, and interview preparation.</p>
+
+<div class="social-links">
+
+<a href="#" class="social-link"><i class="fab fa-github"></i></a>
+
+<a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+
+<a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+
+<a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+
+</div>
+
+</div>
+
+<div class="footer-section">
+
+<h4>Quick Links</h4>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="basic.html">Java Basics</a></li>
+
+<li><a href="advanced.html">Advanced Java</a></li>
+
+<li><a href="programs.html">Programs</a></li>
+
+<li><a href="interview.html">Interview Q&A</a></li>
+
+<li><a href="mcq.html">MCQ Quiz</a></li>
+
+<li><a href="questionBank.html">Java FAQs</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-section">
+
+<h4>Resources</h4>
+
+<ul>
+
+<li><a href="#">Documentation</a></li>
+
+<li><a href="#">Code Examples</a></li>
+
+<li><a href="#">Video Tutorials</a></li>
+
+<li><a href="#">Practice Tests</a></li>
+
+<li><a href="#">Community</a></li>
+
+<li><a href="#">Support</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-section">
+
+<h4>Contact Info</h4>
+
+<ul>
+
+<li><i class="fas fa-envelope"></i> support@javamastery.com</li>
+
+<li><i class="fas fa-phone"></i> +91 9876543210</li>
+
+<li><i class="fas fa-map-marker-alt"></i> bangalore, india</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p class="copyright">
+© 2026 JavaMastery. All Rights Reserved.
+</p>
+
+<div class="footer-bottom-links">
+
+<a href="#">Privacy Policy</a>
+
+<a href="#">Terms of Service</a>
+
+<a href="#">Cookie Policy</a>
+
+</div>
+
+</div>
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

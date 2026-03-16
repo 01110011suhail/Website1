@@ -16,6 +16,21 @@ A comprehensive, interactive Java programming learning platform designed to take
 - **Real Programs**: Practical coding exercises and examples
 - **Interview Preparation**: Technical interview questions and answers
 
+### 💻 Interactive Code Editor
+- **Live Coding Environment**: Write and test Java code in-browser
+- **20+ Practice Problems**: From Hello World to advanced algorithms
+- **Syntax Highlighting**: Professional code editor experience
+- **Instant Execution**: Simulated code running with output display
+- **Problem Categories**: Beginner, Intermediate, Advanced, OOP programs
+- **Difficulty Indicators**: Easy, Medium, Hard level classification
+
+### ❓ Interactive FAQ System
+- **24 Comprehensive Questions**: Covering Java basics and OOP concepts
+- **Detailed Explanations**: Code examples and in-depth answers
+- **Quick Reference**: Fast access to important Java concepts
+- **Interview Ready**: Common technical interview questions covered
+- **Accordion Interface**: Clean, expandable question-answer format
+
 ### 🧠 Interactive MCQ Quiz System
 - **100+ Questions**: Covering all Java topics from basics to advanced
 - **Smart Randomization**: 25 random questions per quiz session
@@ -46,6 +61,21 @@ A comprehensive, interactive Java programming learning platform designed to take
 - First Java program with code examples
 - Interactive FAQ sections
 
+#### Java Programs & Code Editor (`programs.html`)
+- Interactive code editor with syntax highlighting
+- 20+ programming problems from beginner to advanced
+- Real-time code execution simulation
+- Problem categories: Basic, Intermediate, Advanced, OOP
+- Difficulty levels with visual indicators
+- Instant feedback and output display
+
+#### Java FAQ Bank (`questionBank.html`)
+- 24 comprehensive Java questions covering basics and OOP
+- Interactive accordion-style FAQ interface
+- Detailed explanations with code examples
+- Topics: Platform independence, JDK/JRE/JVM, loops, OOP principles
+- Quick reference for Java concepts and interview preparation
+
 #### MCQ Quiz System (`mcq.html`)
 - Professional quiz interface
 - Progress tracking and timer
@@ -68,6 +98,8 @@ JavaMastery/
 │
 ├── index.html          # Homepage with learning overview
 ├── basic.html          # Java basics tutorial
+├── programs.html       # Interactive code editor and programming problems
+├── questionBank.html   # Comprehensive Java FAQ bank
 ├── mcq.html           # Interactive MCQ quiz system
 ├── script.js          # JavaScript functionality
 ├── style.css          # Main stylesheet
@@ -105,9 +137,10 @@ JavaMastery/
 
 ### Learning Flow
 1. **Start with Basics**: Begin with `basic.html` for fundamentals
-2. **Practice with MCQs**: Test knowledge with the quiz system
-3. **Explore Advanced Topics**: Continue with advanced concepts
-4. **Build Projects**: Apply knowledge with real programs
+2. **Explore FAQs**: Check `questionBank.html` for quick concept clarification
+3. **Practice with MCQs**: Test knowledge with the quiz system
+4. **Explore Advanced Topics**: Continue with advanced concepts
+5. **Build Projects**: Apply knowledge with real programs
 
 ### Quiz System
 - Click "Start Quiz" to begin
